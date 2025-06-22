@@ -114,6 +114,111 @@
         .custom-shadow {
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
+
+        .image-carousel {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-image {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .image-carousel:hover .carousel-nav {
+            opacity: 1;
+        }
+
+        .carousel-nav:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-nav.prev {
+            left: 15px;
+        }
+
+        .carousel-nav.next {
+            right: 15px;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .carousel-dot.active {
+            background: white;
+            border-color: white;
+            transform: scale(1.2);
+        }
+
+        .carousel-dot:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .image-counter {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .crown-accent::before {
+            content: "👑";
+            margin-right: 0.5rem;
+        }
+
+        .crown-accent::after {
+            content: "👑";
+            margin-left: 0.5rem;
+        }
     </style>
 </head>
 
@@ -186,7 +291,7 @@
         </nav>
 
         <!-- Main Content -->
-        <main class="glass-effect rounded-3xl overflow-hidden ">
+        <m ain class="glass-effect rounded-3xl overflow-hidden ">
             <!-- Home Page -->
             <div id="home" class="page-section">
                 <!-- Hero Section -->
@@ -576,7 +681,7 @@
             </div>
 
             <!-- Kittens Page -->
-            <div id="kittens" class="page-section">
+            <div id="kittens" class="page-section hidden>
                 <div class="p-8 md:p-12 lg:p-16">
                     <!-- Main Header -->
                     <div class="text-center mb-16">
@@ -753,11 +858,10 @@
             </div>
 
             <!-- Available Adults Page -->
-            <div id="adults" class="page-section hidden">
+            <div id="adults" class="page-section">
                 <div class="p-8 md:p-12">
                     <div class="text-center mb-16">
-                        <h2
-                            class="font-playfair text-5xl md:text-6xl lg:text-7xl text-gradient font-bold mb-6 diamond-accent">
+                        <h2 class="font-playfair text-5xl md:text-6xl lg:text-7xl text-gradient font-bold mb-6">
                             Available Adults
                         </h2>
                         <div class="section-divider max-w-md mx-auto"></div>
@@ -775,37 +879,8 @@
                             </p>
                         </div>
 
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div class="floating-card bg-white rounded-2xl overflow-hidden shadow-lg">
-                                <div
-                                    class="h-64 bg-gradient-to-br from-rose-50 to-pink-100 flex items-center justify-center">
-                                    <span class="text-gray-500 font-medium">Adult Cat Photo Here</span>
-                                </div>
-                                <div class="p-6 text-center">
-                                    <h3 class="font-playfair text-xl text-amber-600 font-semibold mb-2">Duchess Marina
-                                    </h3>
-                                    <div class="text-gray-600 space-y-1">
-                                        <p>Retired Queen</p>
-                                        <p>Age: 5 years</p>
-                                        <p>Spayed & Available</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="floating-card bg-white rounded-2xl overflow-hidden shadow-lg">
-                                <div
-                                    class="h-64 bg-gradient-to-br from-emerald-50 to-green-100 flex items-center justify-center">
-                                    <span class="text-gray-500 font-medium">Adult Cat Photo Here</span>
-                                </div>
-                                <div class="p-6 text-center">
-                                    <h3 class="font-playfair text-xl text-amber-600 font-semibold mb-2">Sir Maximus</h3>
-                                    <div class="text-gray-600 space-y-1">
-                                        <p>Young Adult Male</p>
-                                        <p>Age: 2 years</p>
-                                        <p>Neutered & Available</p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="adults-grid" class="grid justify-center">
+                            <!-- Adult cats will be populated by JavaScript -->
                         </div>
                     </div>
                 </div>
@@ -827,70 +902,8 @@
                             </p>
                         </div>
 
-                        <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-                            <div class="floating-card bg-white rounded-2xl overflow-hidden shadow-lg">
-                                <div
-                                    class="h-64 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                                    <span class="text-gray-500 font-medium">King Photo Here</span>
-                                </div>
-                                <div class="p-6 text-center">
-                                    <h3 class="font-playfair text-xl text-amber-600 font-semibold mb-2">King
-                                        Thunderstorm</h3>
-                                    <div class="text-gray-600 space-y-1">
-                                        <p>Breeding Stud</p>
-                                        <p>Brown Tabby</p>
-                                        <p>Champion Bloodline</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="floating-card bg-white rounded-2xl overflow-hidden shadow-lg">
-                                <div
-                                    class="h-64 bg-gradient-to-br from-purple-50 to-pink-100 flex items-center justify-center">
-                                    <span class="text-gray-500 font-medium">Queen Photo Here</span>
-                                </div>
-                                <div class="p-6 text-center">
-                                    <h3 class="font-playfair text-xl text-amber-600 font-semibold mb-2">Queen Seraphina
-                                    </h3>
-                                    <div class="text-gray-600 space-y-1">
-                                        <p>Breeding Queen</p>
-                                        <p>Silver Tabby</p>
-                                        <p>Imported from Europe</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="floating-card bg-white rounded-2xl overflow-hidden shadow-lg">
-                                <div
-                                    class="h-64 bg-gradient-to-br from-amber-50 to-yellow-100 flex items-center justify-center">
-                                    <span class="text-gray-500 font-medium">Queen Photo Here</span>
-                                </div>
-                                <div class="p-6 text-center">
-                                    <h3 class="font-playfair text-xl text-amber-600 font-semibold mb-2">Queen Isabella
-                                    </h3>
-                                    <div class="text-gray-600 space-y-1">
-                                        <p>Breeding Queen</p>
-                                        <p>Tortoiseshell</p>
-                                        <p>Grand Champion</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="floating-card bg-white rounded-2xl overflow-hidden shadow-lg">
-                                <div
-                                    class="h-64 bg-gradient-to-br from-slate-100 to-gray-200 flex items-center justify-center">
-                                    <span class="text-gray-500 font-medium">King Photo Here</span>
-                                </div>
-                                <div class="p-6 text-center">
-                                    <h3 class="font-playfair text-xl text-amber-600 font-semibold mb-2">King Augustus
-                                    </h3>
-                                    <div class="text-gray-600 space-y-1">
-                                        <p>Breeding Stud</p>
-                                        <p>Solid Black</p>
-                                        <p>Health Tested</p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="royalty-grid" class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+                            <!-- Royal cats will be populated by JavaScript -->
                         </div>
                     </div>
                 </div>
@@ -1007,93 +1020,518 @@
                     </div>
                 </div>
             </div>
-        </main>
+            </main>
     </div>
 
-    <script>
+  <script>
+    // Main carousel functionality
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const slidesContainer = document.querySelector('.carousel-slides');
 
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const slidesContainer = document.querySelector('.carousel-slides');
-
-        function updateCarousel() {
-            // Move slides
+    function updateCarousel() {
+        if (slidesContainer) {
             slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
+    }
 
-        function nextSlide() {
+    function nextSlide() {
+        if (slides.length > 0) {
             currentSlide = (currentSlide + 1) % slides.length;
             updateCarousel();
         }
+    }
 
-        // Auto-play
-        setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    // Navigation functionality
+    function showPage(pageId) {
+        // Hide all pages
+        const pages = document.querySelectorAll('.page-section');
+        pages.forEach(page => page.classList.add('hidden'));
 
-        // Initialize
-        updateCarousel();
-        function showPage(pageId) {
-            // Hide all pages
-            const pages = document.querySelectorAll('.page-section');
-            pages.forEach(page => page.classList.add('hidden'));
-
-            // Show selected page
-            document.getElementById(pageId).classList.remove('hidden');
-
-            // Update navigation active state
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => {
-                item.classList.remove('gradient-gold', 'text-white', 'active-nav');
-                item.classList.add('text-gray-700', 'hover:bg-gray-100');
-            });
-
-            // Add active class to clicked item
-            event.target.closest('.nav-item').classList.remove('text-gray-700', 'hover:bg-gray-100');
-            event.target.closest('.nav-item').classList.add('gradient-gold', 'text-white', 'active-nav');
+        // Show selected page
+        const targetPage = document.getElementById(pageId);
+        if (targetPage) {
+            targetPage.classList.remove('hidden');
         }
 
-        function handleSubmit(event) {
-            event.preventDefault();
-
-            // Create a success message with better styling
-            const successMessage = document.createElement('div');
-            successMessage.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform transition-all duration-300 translate-x-full';
-            successMessage.innerHTML = `
-                <div class="flex items-center gap-2">
-                    <span>✓</span>
-                    <span>Thank you for your message! We will contact you soon.</span>
-                </div>
-            `;
-
-            document.body.appendChild(successMessage);
-
-            // Animate in
-            setTimeout(() => {
-                successMessage.classList.remove('translate-x-full');
-            }, 100);
-
-            // Remove after 5 seconds
-            setTimeout(() => {
-                successMessage.classList.add('translate-x-full');
-                setTimeout(() => {
-                    document.body.removeChild(successMessage);
-                }, 300);
-            }, 5000);
-        }
-
-        function clearForm() {
-            const forms = document.querySelectorAll('.contact-form, form');
-            forms.forEach(form => form.reset());
-        }
-
-        // Add smooth scrolling and fade-in animation on page load
-        document.addEventListener('DOMContentLoaded', function () {
-            const elements = document.querySelectorAll('.animate-fade-in-up');
-            elements.forEach((element, index) => {
-                element.style.animationDelay = `${index * 0.1}s`;
-            });
+        // Update navigation active state
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.classList.remove('gradient-gold', 'text-white', 'active-nav');
+            item.classList.add('text-gray-700', 'hover:bg-gray-100');
         });
 
-        // Add intersection observer for scroll animations
+        // Add active class to clicked item
+        if (event && event.target) {
+            const clickedItem = event.target.closest('.nav-item');
+            if (clickedItem) {
+                clickedItem.classList.remove('text-gray-700', 'hover:bg-gray-100');
+                clickedItem.classList.add('gradient-gold', 'text-white', 'active-nav');
+            }
+        }
+    }
+
+    // Form handling
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        const successMessage = document.createElement('div');
+        successMessage.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform transition-all duration-300 translate-x-full';
+        successMessage.innerHTML = `
+            <div class="flex items-center gap-2">
+                <span>✓</span>
+                <span>Thank you for your message! We will contact you soon.</span>
+            </div>
+        `;
+
+        document.body.appendChild(successMessage);
+
+        // Animate in
+        setTimeout(() => {
+            successMessage.classList.remove('translate-x-full');
+        }, 100);
+
+        // Remove after 5 seconds
+        setTimeout(() => {
+            successMessage.classList.add('translate-x-full');
+            setTimeout(() => {
+                if (document.body.contains(successMessage)) {
+                    document.body.removeChild(successMessage);
+                }
+            }, 300);
+        }, 5000);
+    }
+
+    function clearForm() {
+        const forms = document.querySelectorAll('.contact-form, form');
+        forms.forEach(form => form.reset());
+    }
+
+    // Adult cats data
+    const adultsData = [
+        {
+            id: 'duchess-marina',
+            name: 'Ronnie',
+            description: 'A gentle and loving retired breeding queen who enjoys quiet companionship and sunny windowsills.',
+            images: [
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750587699/WhatsApp_Image_2025-06-21_at_19.32.59_37a4e20e_yij21s.jpg',
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750587699/WhatsApp_Image_2025-06-21_at_19.32.58_539007d5_if7d1m.jpg',
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750587700/WhatsApp_Image_2025-06-21_at_19.32.58_9966a272_y73wql.jpg',
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750587699/WhatsApp_Image_2025-06-21_at_19.32.59_ba793eec_ziyplw.jpg',
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750587700/WhatsApp_Image_2025-06-21_at_19.32.58_e9535a43_s3oeof.jpg',
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750587700/WhatsApp_Image_2025-06-21_at_19.32.58_b5342023_opp6jw.jpg',
+            ]
+        }
+    ];
+
+    // Royal breeding cats data
+    const royalCatsData = [
+        {
+            id: 'king-thunderstorm',
+            name: 'Chocolate Chip Dom Sapfiroff',
+            title: ' MCO phoenix smoke Stud',
+            breed: 'Brown Tabby',
+            achievement: 'Champion Bloodline',
+            bgGradient: 'from-gray-100 to-gray-200',
+            crown: '👑',
+            description: 'A magnificent stud with exceptional size and temperament, carrying champion bloodlines.',
+            images: [
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750589720/WhatsApp_Image_2025-06-21_at_19.26.48_0e7eb3ac_wx3gx1.jpg',
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750589720/WhatsApp_Image_2025-06-21_at_19.26.48_32cafcc0_dblfwk.jpg',
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750589720/WhatsApp_Image_2025-06-21_at_19.26.48_0e7eb3ac_wx3gx1.jpg'
+            ]
+        },
+        {
+            id: 'queen-seraphina',
+            name: 'Maibah Volkov Praid',
+            title: ' Our black smoke MCO Stud',
+            breed: 'Silver Tabby',
+            achievement: 'Imported from Europe',
+            bgGradient: 'from-purple-50 to-pink-100',
+            crown: '👸',
+            description: 'An elegant European import with exceptional silver markings and gentle nature.',
+            images: [
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750590095/WhatsApp_Image_2025-06-21_at_19.28.36_2113f18f_x8mphp.jpg',
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750590095/WhatsApp_Image_2025-06-21_at_19.28.36_a0ef8c0f_hwmell.jpg',
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750590095/WhatsApp_Image_2025-06-21_at_19.28.36_f247bb67_ixo9u8.jpg',
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750590095/WhatsApp_Image_2025-06-21_at_19.28.36_b37c0cb0_tbdayp.jpg',
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750590096/WhatsApp_Image_2025-06-21_at_19.28.36_5a860e54_mhxdcx.jpg',
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750590096/WhatsApp_Image_2025-06-21_at_19.28.35_f5b260d9_uh7a84.jpg,',
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750590096/WhatsApp_Image_2025-06-21_at_19.28.36_d63ef5d1_a2sfxr.jpg'
+
+            ]
+        },
+        {
+            id: 'queen-isabella',
+            name: 'Breeze Nordirbiscat',
+            title: 'Red chinchilla MCO',
+            breed: 'Tortoiseshell',
+            achievement: 'Grand Champion',
+            bgGradient: 'from-amber-50 to-yellow-100',
+            crown: '👸',
+            description: 'A stunning tortoiseshell with grand champion status and excellent mothering abilities.',
+            images: [
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592058/WhatsApp_Image_2025-06-21_at_19.31.15_32c252e1_ftfpb4.jpg',
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592058/WhatsApp_Image_2025-06-21_at_19.31.15_e5cb3b55_grkzbs.jpg',
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592059/WhatsApp_Image_2025-06-21_at_19.31.13_08aa13a3_bo1ssf.jpg',
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592058/WhatsApp_Image_2025-06-21_at_19.31.14_0e1f74c1_mdgsl4.jpg',
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592059/WhatsApp_Image_2025-06-21_at_19.31.12_8d58abf2_roelko.jpg'
+            ]
+        },
+        {
+            id: 'king-augustus',
+            name: 'This is Sugar Kiss',
+            title: 'Blue MCO stud',
+            breed: 'Solid Black',
+            achievement: 'Health Tested',
+            bgGradient: 'from-slate-100 to-gray-200',
+            crown: '👑',
+            description: 'A powerful solid black stud with comprehensive health testing and proven genetics.',
+            images: [
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592524/WhatsApp_Image_2025-06-21_at_19.31.50_1a32b2fa_actu3j.jpg',
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592524/WhatsApp_Image_2025-06-21_at_19.31.50_5baa408c_cti4sb.jpg',
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592524/WhatsApp_Image_2025-06-21_at_19.32.19_0c9bbe5e_nfcfir.jpg',
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592524/WhatsApp_Image_2025-06-21_at_19.32.19_0ea5a4f1_gkiowd.jpg',
+                'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592526/WhatsApp_Image_2025-06-21_at_19.31.50_e8f8bd95_rieykr.jpg'
+            ]
+        }
+    ];
+
+    // Separate image indices for each section
+    let adultImageIndex = {};
+    let royalImageIndex = {};
+
+    // Initialize image indices
+    function initializeImageIndices() {
+        adultsData.forEach(cat => {
+            adultImageIndex[cat.id] = 0;
+        });
+        royalCatsData.forEach(cat => {
+            royalImageIndex[cat.id] = 0;
+        });
+    }
+
+    // Create image carousel for adult cats
+    function createAdultImageCarousel(cat) {
+        if (cat.images.length === 1) {
+            return `
+                <div class="h-96 bg-gradient-to-br from-blue-50 to-purple-100 relative overflow-hidden">
+                    <img src="${cat.images[0]}" alt="${cat.name}" 
+                         class="w-full h-full object-contain transition-transform duration-300 hover:scale-105" 
+                         onerror="showAdultFallback(this, '${cat.name}')">
+                </div>
+            `;
+        }
+
+        return `
+            <div class="image-carousel h-80 bg-gradient-to-br from-blue-50 to-purple-100 relative overflow-hidden" data-cat="${cat.id}" data-type="adult">
+                <div class="carousel-container h-full flex transition-transform duration-300 ease-in-out" style="transform: translateX(0%); width: ${cat.images.length * 100}%;">
+                    ${cat.images.map((img, index) => `
+                        <img src="${img}" alt="${cat.name} - Photo ${index + 1}" 
+                             class="w-full h-full object-contain flex-shrink-0" 
+                             style="width: ${100 / cat.images.length}%;"
+                             onerror="showAdultFallback(this, '${cat.name}')">
+                    `).join('')}
+                </div>
+                
+                <div class="absolute top-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-sm">
+                    <span class="current-image">1</span> / ${cat.images.length}
+                </div>
+                
+                <button class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition-all" onclick="changeAdultImage('${cat.id}', -1)">‹</button>
+                <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition-all" onclick="changeAdultImage('${cat.id}', 1)">›</button>
+                
+                <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                    ${cat.images.map((_, index) => `
+                        <div class="w-2 h-2 rounded-full cursor-pointer transition-all ${index === 0 ? 'bg-white' : 'bg-white/50'}" 
+                             onclick="goToAdultImage('${cat.id}', ${index})"
+                             data-index="${index}"></div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+    }
+
+    // Create image carousel for royal cats
+    function createRoyalImageCarousel(cat) {
+        if (cat.images.length === 1) {
+            return `
+                <div class="h-64 bg-gradient-to-br ${cat.bgGradient} relative overflow-hidden">
+                    <div class="absolute top-2 left-2 text-2xl">${cat.crown}</div>
+                    <img src="${cat.images[0]}" alt="${cat.name}" 
+                         class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                         onerror="showRoyalFallback(this, '${cat.bgGradient}', '${cat.name}')">
+                </div>
+            `;
+        }
+
+        return `
+            <div class="image-carousel h-64 bg-gradient-to-br ${cat.bgGradient} relative overflow-hidden" data-cat="${cat.id}" data-type="royal">
+                <div class="absolute top-2 left-2 text-2xl z-10">${cat.crown}</div>
+                <div class="carousel-container h-full flex transition-transform duration-300 ease-in-out" style="transform: translateX(0%); width: ${cat.images.length * 100}%;">
+                    ${cat.images.map((img, index) => `
+                        <img src="${img}" alt="${cat.name} - Photo ${index + 1}" 
+                             class="w-full h-full object-cover flex-shrink-0" 
+                             style="width: ${100 / cat.images.length}%;"
+                             onerror="showRoyalFallback(this, '${cat.bgGradient}', '${cat.name}')">
+                    `).join('')}
+                </div>
+                
+                <div class="absolute top-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-xs">
+                    <span class="current-image">1</span>/${cat.images.length}
+                </div>
+                
+                <button class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold transition-all" onclick="changeRoyalImage('${cat.id}', -1)">‹</button>
+                <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold transition-all" onclick="changeRoyalImage('${cat.id}', 1)">›</button>
+                
+                <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                    ${cat.images.map((_, index) => `
+                        <div class="w-1.5 h-1.5 rounded-full cursor-pointer transition-all ${index === 0 ? 'bg-white' : 'bg-white/50'}" 
+                             onclick="goToRoyalImage('${cat.id}', ${index})"
+                             data-index="${index}"></div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+    }
+
+    // Generate adult cat cards
+    function generateAdultCards() {
+        const grid = document.getElementById('adults-grid');
+        if (!grid) return;
+
+        grid.innerHTML = adultsData.map(cat => `
+            <div class="floating-card bg-white rounded-2xl overflow-hidden shadow-lg max-w-lg w-full" data-cat="${cat.id}">
+                ${createAdultImageCarousel(cat)}
+                <div class="p-8 text-center">
+                    <h3 class="font-playfair text-2xl text-amber-600 font-semibold mb-4">${cat.name}</h3>
+                   
+                    ${cat.description ? `
+                        <p class="text-gray-600 text-sm leading-relaxed italic border-t pt-4">
+                            ${cat.description}
+                        </p>
+                    ` : ''}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Generate royal cat cards
+    function generateRoyalCards() {
+        const grid = document.getElementById('royalty-grid');
+        if (!grid) return;
+        
+        grid.innerHTML = royalCatsData.map(cat => `
+            <div class="floating-card bg-white rounded-2xl overflow-hidden shadow-lg" data-cat="${cat.id}">
+                ${createRoyalImageCarousel(cat)}
+                <div class="p-6 text-center">
+                    <div class="breeding-status">${cat.title}</div>
+                    <h3 class="font-playfair text-xl text-amber-600 font-semibold mb-3">${cat.name}</h3>
+                    <div class="text-gray-600 space-y-1 mb-3">
+                        <p class="font-medium">${cat.breed}</p>
+                        <p class="text-sm text-amber-600 font-medium">${cat.achievement}</p>
+                    </div>
+                    ${cat.description ? `
+                        <p class="text-gray-600 text-xs leading-relaxed italic border-t pt-3">
+                            ${cat.description}
+                        </p>
+                    ` : ''}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Adult cat image navigation
+    function changeAdultImage(catId, direction) {
+        const cat = adultsData.find(c => c.id === catId);
+        if (!cat || cat.images.length <= 1) return;
+
+        const currentIndex = adultImageIndex[catId];
+        const newIndex = (currentIndex + direction + cat.images.length) % cat.images.length;
+
+        goToAdultImage(catId, newIndex);
+    }
+
+    function goToAdultImage(catId, index) {
+        const cat = adultsData.find(c => c.id === catId);
+        if (!cat) return;
+
+        adultImageIndex[catId] = index;
+
+        const carousel = document.querySelector(`[data-cat="${catId}"][data-type="adult"]`);
+        if (!carousel) return;
+
+        const container = carousel.querySelector('.carousel-container');
+        const dots = carousel.querySelectorAll('[data-index]');
+        const counter = carousel.querySelector('.current-image');
+
+        // Move carousel
+        const translateX = -index * (100 / cat.images.length);
+        container.style.transform = `translateX(${translateX}%)`;
+
+        // Update dots
+        dots.forEach((dot, i) => {
+            if (i === index) {
+                dot.classList.remove('bg-white/50');
+                dot.classList.add('bg-white');
+            } else {
+                dot.classList.remove('bg-white');
+                dot.classList.add('bg-white/50');
+            }
+        });
+
+        // Update counter
+        if (counter) {
+            counter.textContent = index + 1;
+        }
+    }
+
+    // Royal cat image navigation
+    function changeRoyalImage(catId, direction) {
+        const cat = royalCatsData.find(c => c.id === catId);
+        if (!cat || cat.images.length <= 1) return;
+
+        const currentIndex = royalImageIndex[catId];
+        const newIndex = (currentIndex + direction + cat.images.length) % cat.images.length;
+        
+        goToRoyalImage(catId, newIndex);
+    }
+
+    function goToRoyalImage(catId, index) {
+        const cat = royalCatsData.find(c => c.id === catId);
+        if (!cat) return;
+
+        royalImageIndex[catId] = index;
+        
+        const carousel = document.querySelector(`[data-cat="${catId}"][data-type="royal"]`);
+        if (!carousel) return;
+
+        const container = carousel.querySelector('.carousel-container');
+        const dots = carousel.querySelectorAll('[data-index]');
+        const counter = carousel.querySelector('.current-image');
+
+        // Move carousel
+        const translateX = -index * (100 / cat.images.length);
+        container.style.transform = `translateX(${translateX}%)`;
+
+        // Update dots
+        dots.forEach((dot, i) => {
+            if (i === index) {
+                dot.classList.remove('bg-white/50');
+                dot.classList.add('bg-white');
+            } else {
+                dot.classList.remove('bg-white');
+                dot.classList.add('bg-white/50');
+            }
+        });
+
+        // Update counter
+        if (counter) {
+            counter.textContent = index + 1;
+        }
+    }
+
+    // Shared carousel display update function (keeping for compatibility but not using)
+    function updateCarouselDisplay(carousel, index) {
+        // This function is kept for compatibility but the individual functions handle the updates now
+    }
+
+    // Fallback functions
+    function showAdultFallback(img, catName) {
+        const fallbackDiv = document.createElement('div');
+        fallbackDiv.className = 'w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-100';
+        fallbackDiv.innerHTML = `
+            <div class="text-center">
+                <div class="text-6xl mb-3">🐱</div>
+                <span class="text-gray-600 font-medium bg-white/80 px-4 py-2 rounded-full text-sm">
+                    ${catName} Photo Coming Soon
+                </span>
+            </div>
+        `;
+        img.parentNode.replaceChild(fallbackDiv, img);
+    }
+
+    function showRoyalFallback(img, bgGradient, catName) {
+        const fallbackDiv = document.createElement('div');
+        fallbackDiv.className = `w-full h-full flex items-center justify-center bg-gradient-to-br ${bgGradient}`;
+        fallbackDiv.innerHTML = `
+            <div class="text-center">
+                <div class="text-5xl mb-2">🐱</div>
+                <span class="text-gray-600 font-medium bg-white/80 px-3 py-1 rounded-full text-xs">
+                    ${catName} Photo Coming Soon
+                </span>
+            </div>
+        `;
+        img.parentNode.replaceChild(fallbackDiv, img);
+    }
+
+    // Auto-rotate functions
+    function startAdultAutoRotate() {
+        setInterval(() => {
+            adultsData.forEach(cat => {
+                if (cat.images.length > 1) {
+                    changeAdultImage(cat.id, 1);
+                }
+            });
+        }, 6000);
+    }
+
+    function startRoyalAutoRotate() {
+        royalCatsData.forEach((cat, index) => {
+            if (cat.images.length > 1) {
+                setTimeout(() => {
+                    setInterval(() => {
+                        changeRoyalImage(cat.id, 1);
+                    }, 8000);
+                }, index * 2000); // Stagger by 2 seconds
+            }
+        });
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function (e) {
+        // Only handle arrow keys if we're not in an input field
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+            const direction = e.key === 'ArrowLeft' ? -1 : 1;
+            
+            // Try to navigate the first available adult cat
+            if (adultsData.length > 0 && adultsData[0].images.length > 1) {
+                changeAdultImage(adultsData[0].id, direction);
+            }
+        }
+    });
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    document.addEventListener('touchstart', function (e) {
+        touchStartX = e.touches[0].clientX;
+    });
+
+    document.addEventListener('touchend', function (e) {
+        const touchEndX = e.changedTouches[0].clientX;
+        const diffX = touchStartX - touchEndX;
+
+        if (Math.abs(diffX) > 50) { // Minimum swipe distance
+            const direction = diffX > 0 ? 1 : -1;
+            
+            // Try to navigate the first available adult cat
+            if (adultsData.length > 0 && adultsData[0].images.length > 1) {
+                changeAdultImage(adultsData[0].id, direction);
+            }
+        }
+    });
+
+    // Animation setup
+    function setupAnimations() {
+        // Fade-in animation setup
+        const elements = document.querySelectorAll('.animate-fade-in-up');
+        elements.forEach((element, index) => {
+            element.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // Intersection observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1109,16 +1547,40 @@
         }, observerOptions);
 
         // Observe floating cards
-        document.addEventListener('DOMContentLoaded', function () {
-            const cards = document.querySelectorAll('.floating-card');
-            cards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(card);
-            });
+        const cards = document.querySelectorAll('.floating-card');
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
         });
-    </script>
+    }
+
+    // Initialize everything
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize image indices
+        initializeImageIndices();
+        
+        // Generate cat cards
+        generateAdultCards();
+        generateRoyalCards();
+        
+        // Start auto-rotate
+        startAdultAutoRotate();
+        startRoyalAutoRotate();
+        
+        // Setup animations
+        setupAnimations();
+        
+        // Initialize main carousel if it exists
+        updateCarousel();
+        
+        // Auto-play main carousel
+        if (slides.length > 0) {
+            setInterval(nextSlide, 5000);
+        }
+    });
+</script>
 </body>
 
 </html>
