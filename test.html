@@ -1,1026 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Royal Kingdom of Maine Coons</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
-    <style>
-        * {
-            cursor: url('https://royalkingdomofmc.com/wp-content/themes/royal/img/cursor.png'), auto;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        .font-playfair {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .gradient-gold {
-            background: linear-gradient(135deg, #C9A96E 0%, #B8860B 50%, #8B6914 100%);
-        }
-
-        .gradient-bg {
-            background: linear-gradient(135deg, #fafafa 0%, #f4f4f5 50%, #e4e4e7 100%);
-        }
-
-        .text-gradient {
-            background: linear-gradient(135deg, #C9A96E 0%, #B8860B 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-item {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .carousel-slide {
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .nav-item:hover::before {
-            left: 100%;
-        }
-
-        .floating-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .floating-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-        }
-
-        .hero-image {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
-        }
-
-        .form-input:focus {
-            box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.1);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .custom-shadow {
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        .image-carousel {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .carousel-container {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel-image {
-            flex: 0 0 100%;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: all 0.3s ease;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .image-carousel:hover .carousel-nav {
-            opacity: 1;
-        }
-
-        .carousel-nav:hover {
-            background: rgba(0, 0, 0, 0.8);
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .carousel-nav.prev {
-            left: 15px;
-        }
-
-        .carousel-nav.next {
-            right: 15px;
-        }
-
-        .carousel-indicators {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-        }
-
-        .carousel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .carousel-dot.active {
-            background: white;
-            border-color: white;
-            transform: scale(1.2);
-        }
-
-        .carousel-dot:hover {
-            background: rgba(255, 255, 255, 0.8);
-        }
-
-        .image-counter {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        .crown-accent::before {
-            content: "👑";
-            margin-right: 0.5rem;
-        }
-
-        .crown-accent::after {
-            content: "👑";
-            margin-left: 0.5rem;
-        }
-    </style>
-</head>
-
-<body class="gradient-bg min-h-screen">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <!-- Header -->
-        <header class="text-center mb-12 animate-fade-in-up">
-            <h1 class="font-playfair text-5xl md:text-7xl font-bold text-gray-800 mb-4 tracking-wider">
-                Welcome to Trinkets & House of Rubies
-            </h1>
-            <h2 class="font-playfair text-3xl md:text-4xl text-gradient font-medium italic mb-8">
-                — Where Legacy Meets Luxury in the Maine Coon World —
-            </h2>
-        </header>
-
-        <!-- Navigation -->
-        <nav class="glass-effect rounded-3xl p-6 mb-12 custom-shadow animate-fade-in-up">
-            <div class="flex flex-wrap justify-center items-center gap-4 md:gap-8">
-                <a href="#"
-                    class="nav-item px-6 py-3 rounded-2xl text-white font-semibold text-sm md:text-base transition-all duration-300 gradient-gold active-nav"
-                    onclick="showPage('home')">
-                    <span class="flex items-center gap-2">
-                        <span>🏠</span>
-                        <span>Home</span>
-                    </span>
-                </a>
-                <a href="#"
-                    class="nav-item px-6 py-3 rounded-2xl text-gray-700 font-semibold text-sm md:text-base transition-all duration-300 hover:bg-gray-100"
-                    onclick="showPage('about')">
-                    <span class="flex items-center gap-2">
-                        <span>🐾</span>
-                        <span>About</span>
-                    </span>
-                </a>
-                <a href="#"
-                    class="nav-item px-6 py-3 rounded-2xl text-gray-700 font-semibold text-sm md:text-base transition-all duration-300 hover:bg-gray-100"
-                    onclick="showPage('kittens')">
-                    <span class="flex items-center gap-2">
-                        <span>💝</span>
-                        <span>Kittens</span>
-                    </span>
-                </a>
-                <a href="#"
-                    class="nav-item px-6 py-3 rounded-2xl text-gray-700 font-semibold text-sm md:text-base transition-all duration-300 hover:bg-gray-100"
-                    onclick="showPage('adults')">
-                    <span class="flex items-center gap-2">
-                        <span>👑</span>
-                        <span class="hidden sm:inline">Available Adults</span>
-                        <span class="sm:hidden">Adults</span>
-                    </span>
-                </a>
-                <a href="#"
-                    class="nav-item px-6 py-3 rounded-2xl text-gray-700 font-semibold text-sm md:text-base transition-all duration-300 hover:bg-gray-100"
-                    onclick="showPage('royalty')">
-                    <span class="flex items-center gap-2">
-                        <span>👑</span>
-                        <span class="hidden sm:inline">Kings/Queens</span>
-                        <span class="sm:hidden">Royalty</span>
-                    </span>
-                </a>
-                <a href="#"
-                    class="nav-item px-6 py-3 rounded-2xl text-gray-700 font-semibold text-sm md:text-base transition-all duration-300 hover:bg-gray-100"
-                    onclick="showPage('contact')">
-                    <span class="flex items-center gap-2">
-                        <span>📞</span>
-                        <span>Contact</span>
-                    </span>
-                </a>
-            </div>
-        </nav>
-
-        <!-- Main Content -->
-        <main class="glass-effect rounded-3xl overflow-hidden ">
-            <!-- Home Page -->
-            <div id="home" class="page-section">
-                <!-- Hero Section -->
-                <div class="hero-image  bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                    <div class="hero-carousel relative bg-gradient-to-br from-gray-100 to-gray-200  overflow-hidden">
-                        <!-- Carousel Container -->
-                        <div class="carousel-container relative w-full h-full flex items-center justify-center">
-                            <!-- Slides -->
-                            <div class="carousel-slides flex w-full h-full">
-                                <!-- Slide 1 -->
-                                <div
-                                    class="carousel-slide w-full h-full flex-shrink-0 flex items-center justify-center">
-                                    <div class="text-center">
-                                        <img src="./cat.jpg" alt="Hero Image 1"
-                                            class="max-w-full max-h-full object-contain">
-
-                                    </div>
-                                </div>
-
-                                <!-- Slide 2 -->
-                                <!-- <div
-                                    class="carousel-slide w-full h-full flex-shrink-0 flex items-center justify-center">
-                                    <div class="text-center">
-                                       <img src="./main.webp" alt="Hero Image 1"
-                                            class="max-w-full max-h-full object-contain">
-                                    </div>
-                                </div> -->
-
-
-                                <!-- <div
-                                    class="carousel-slide w-full h-full flex-shrink-0 flex items-center justify-center">
-                                    <div class="text-center">
-                                        <div
-                                            class="w-64 h-48 bg-green-500 rounded-lg flex items-center justify-center mb-4">
-                                            <span class="text-white text-xl font-bold">Slide 3</span>
-                                        </div>
-                                        <h2 class="text-2xl font-bold text-gray-800 mt-4">Get Started Today</h2>
-                                        <p class="text-gray-600 mt-2">Join thousands of satisfied customers</p>
-                                    </div>
-                                </div> -->
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
-                </div>
-
-                <!-- About Image Placeholder -->
-                <div class="flex justify-center py-8 bg-white">
-                    <div class="    rounded-2xl flex items-center justify-center ">
-                        <img class=" h-64" src="./head-img.png" alt="">
-                    </div>
-                </div>
-
-                <!-- Welcome Section -->
-                <div class="bg-white -mt-20 px-8 md:px-12 py-12">
-                    <div class="max-w-4xl mx-auto text-center">
-                        <div
-                            class="inline-block gradient-gold text-white px-8 py-4 rounded-full text-lg md:text-xl font-semibold mb-8 shadow-lg">
-                            Welcome to Trinkets & House of Rubies
-
-                        </div>
-
-                        <div class="flex justify-center mb-8">
-                            <div class="flex space-x-4 text-2xl text-amber-600">
-                                <span>🐾</span>
-                                <span>🐾</span>
-                                <span>🐾</span>
-                            </div>
-                        </div>
-
-                        <div class="space-y-6 text-gray-700 leading-relaxed text-base md:text-lg">
-                            <p>
-                                At Trinkets and House of Rubies, we are dedicated to preserving the majesty and magic of
-                                the Maine Coon. As ethical breeders and passionate guardians of this beloved breed, we
-                                offer two distinct catteries with one shared mission: to produce exceptional Maine Coons
-                                that are as healthy and loving as they are beautiful.
-                            </p>
-
-
-
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Section -->
-                <div class="bg-gradient-to-br from-gray-50 to-gray-100  md:px-12 py-12">
-                    <div class="max-w-7xl mx-auto">
-                        <h2 class="font-playfair text-3xl md:text-4xl text-center text-gradient font-semibold mb-12">
-                            Leave Your Request Here
-                        </h2>
-
-                        <div class="grid lg:grid-cols-2 gap-12">
-                            <!-- Contact Form -->
-                            <div class="bg-white rounded-2xl p-8 shadow-lg">
-                                <form class="space-y-6" onsubmit="handleSubmit(event)">
-                                    <div>
-                                        <input type="text"
-                                            class="form-input w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-gray-800 placeholder-gray-500 focus:border-amber-500 focus:outline-none transition-colors"
-                                            placeholder="Your Name*" required>
-                                    </div>
-                                    <div>
-                                        <input type="email"
-                                            class="form-input w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-gray-800 placeholder-gray-500 focus:border-amber-500 focus:outline-none transition-colors"
-                                            placeholder="Your Email*" required>
-                                    </div>
-                                    <div>
-                                        <input type="tel"
-                                            class="form-input w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-gray-800 placeholder-gray-500 focus:border-amber-500 focus:outline-none transition-colors"
-                                            placeholder="Your Phone">
-                                    </div>
-                                    <div>
-                                        <textarea
-                                            class="form-input w-full px-4 py-3 h-32 border-2 border-gray-200 rounded-xl text-gray-800 placeholder-gray-500 focus:border-amber-500 focus:outline-none transition-colors resize-none"
-                                            placeholder="Message*" required></textarea>
-                                    </div>
-                                    <div class="space-y-4">
-                                        <button type="submit"
-                                            class="w-full gradient-gold text-white py-3 px-6 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:scale-105">
-                                            Send Message
-                                        </button>
-                                        <button type="button"
-                                            class="w-full bg-gray-600 hover:bg-gray-700 text-white py-3 px-6 rounded-xl font-semibold text-lg transition-all duration-300"
-                                            onclick="clearForm()">
-                                            Reserve/Wait List Application
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-
-                            <!-- Contact Information -->
-                            <div class="bg-white rounded-2xl p-8 shadow-lg">
-                                <div class="text-center space-y-4">
-                                    <div class="text-3xl mb-6">👑</div>
-                                    <h3 class="font-playfair text-xl font-semibold text-gray-800 mb-6">
-                                        Maine Coon Cattery in Pensacola, Florida, USA
-                                    </h3>
-
-                                    <div class="space-y-3 text-gray-700">
-                                        <p class="font-semibold text-lg text-gradient">"Royal Kingdom of Maine Coons"
-                                        </p>
-                                        <p class="font-medium">Natalie Borodayne</p>
-
-                                        <div class="pt-4 space-y-2">
-                                            <p class="flex items-center justify-center gap-2">
-                                                <span>📱</span>
-                                                <span>+1 (850) 555-7863</span>
-                                            </p>
-                                            <p class="flex items-center justify-center gap-2">
-                                                <span>📧</span>
-                                                <span
-                                                    class="text-sm md:text-base">royalkingdomofmainecoons@gmail.com</span>
-                                            </p>
-                                            <p class="flex items-center justify-center gap-2">
-                                                <span>📷</span>
-                                                <span>@mainecoonscattery</span>
-                                            </p>
-                                            <p class="flex items-center justify-center gap-2">
-                                                <span>🏠</span>
-                                                <span>royal_kingdom_of_maine_coons</span>
-                                            </p>
-                                            <p class="flex items-center justify-center gap-2">
-                                                <span>🌐</span>
-                                                <span>natalie.borodayne</span>
-                                            </p>
-                                            <p class="flex items-center justify-center gap-2 pt-2">
-                                                <span>📍</span>
-                                                <span>Pensacola, FL, USA</span>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="flex justify-center space-x-4 text-2xl text-amber-600 pt-6">
-                                        <span>🐾</span>
-                                        <span>🐾</span>
-                                        <span>🐾</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- About Page -->
-            <div id="about" class="page-section">
-                <div class="p-8 md:p-12 lg:p-16">
-                    <!-- Main Header -->
-                    <div class="text-center mb-16">
-                        <h2 class="font-playfair text-5xl md:text-6xl lg:text-7xl text-gradient font-bold mb-6">
-                            About Our Cattery
-                        </h2>
-                        <div class="section-divider max-w-md mx-auto"></div>
-                        <p class="font-inter text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                            Where exceptional Maine Coons are bred with passion, integrity, and unwavering commitment to
-                            excellence
-                        </p>
-                    </div>
-
-                    <div class="max-w-7xl mx-auto space-y-16">
-                        <!-- Mission Statement -->
-                        <div class="text-center mb-16">
-                            <div class="floating-card bg-white rounded-3xl p-10 shadow-xl max-w-4xl mx-auto">
-                                <h3 class="font-playfair text-3xl text-amber-600 font-bold mb-6 diamond-accent">Our
-                                    Mission</h3>
-                                <p class="text-gray-700 leading-relaxed text-xl font-medium">
-                                    To produce exceptional Maine Coons that are as healthy and loving as they are
-                                    beautiful.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Trinkets Maine Coons Section -->
-                        <div class="grid lg:grid-cols-2 gap-12 items-start">
-                            <div class="floating-card bg-white rounded-3xl p-10 shadow-xl h-full">
-                                <div class="text-center mb-8">
-                                    <h3 class="font-playfair text-4xl text-amber-600 font-bold mb-4">
-                                        ◆ Trinkets Maine Coons ◆
-                                    </h3>
-                                    <div
-                                        class="w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full mb-6">
-                                    </div>
-                                    <p class="font-playfair text-xl text-amber-700 italic font-semibold">
-                                        All Colors. All Heart. All Maine Coon.
-                                    </p>
-                                </div>
-
-                                <div class="space-y-6">
-                                    <p class="text-gray-700 leading-relaxed text-lg">
-                                        Trinkets is our flagship cattery, where we proudly work with <span
-                                            class="font-semibold text-amber-700">all recognized Maine Coon
-                                            colors</span>—including classic tabbies, silvers, smokes, torties, solids,
-                                        and beyond.
-                                    </p>
-
-                                    <p class="text-gray-700 leading-relaxed text-lg">
-                                        We value diversity in both appearance and personality, producing kittens that
-                                        exemplify the breed standard in size, coat, structure, and temperament. Trinkets
-                                        kittens are raised in a warm, home-based environment with early socialization,
-                                        ensuring they grow into confident, affectionate companions.
-                                    </p>
-
-                                    <div class="accent-border mt-6">
-                                        <p class="text-gray-700 leading-relaxed text-lg italic">
-                                            Whether you seek a show-quality cat or a loyal family member, Trinkets
-                                            offers a rainbow of possibilities wrapped in gentle, giant hearts.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="floating-card bg-white rounded-3xl p-10 shadow-xl h-full">
-                                <div class="text-center mb-8">
-                                    <h3 class="font-playfair text-4xl text-amber-600 font-bold mb-4">
-                                        ✧ House of Rubies ✧
-                                    </h3>
-                                    <div
-                                        class="w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full mb-6">
-                                    </div>
-                                    <p class="font-playfair text-xl text-amber-700 italic font-semibold">
-                                        Rare Elegance. Timeless Warmth. The Phoenix of Maine Coons.
-                                    </p>
-                                </div>
-
-                                <div class="space-y-6">
-                                    <p class="text-gray-700 leading-relaxed text-lg">
-                                        House of Rubies is a boutique cattery specializing exclusively in the <span
-                                            class="font-semibold text-amber-700">rare cinnamon blue color
-                                            spectrum</span>—also known as the <em>phoenix shades</em>.
-                                    </p>
-
-                                    <p class="text-gray-700 leading-relaxed text-lg">
-                                        These uncommon, warm-toned coats with blue undercoats are paired with the same
-                                        hallmark features of the Maine Coon: luxurious fur, powerful bone structure, and
-                                        an intelligent, dog-like temperament.
-                                    </p>
-
-                                    <div class="bg-amber-50 rounded-2xl p-6 border border-amber-200">
-                                        <h4 class="font-playfair text-lg text-amber-800 font-semibold mb-3">Our
-                                            Distinguished Bloodlines:</h4>
-                                        <ul class="space-y-2 text-gray-700">
-                                            <li class="flex items-center">
-                                                <span class="text-amber-600 mr-2">•</span>
-                                                <span class="font-medium">Obama Iz Doma Yakhontoff</span>
-                                            </li>
-                                            <li class="flex items-center">
-                                                <span class="text-amber-600 mr-2">•</span>
-                                                <span class="font-medium">Tomiris Dom Sapfiroff</span>
-                                            </li>
-                                        </ul>
-                                        <p class="text-sm text-gray-600 mt-3 italic">
-                                            Both descended from Karamel Sanatakun
-                                        </p>
-                                    </div>
-
-                                    <div class="accent-border">
-                                        <p class="text-gray-700 leading-relaxed text-lg">
-                                            We are one of the few catteries globally dedicated to this color group in
-                                            Maine Coons. Each House of Rubies kitten is a testament to the rarity,
-                                            refinement, and radiant charm that defines the phoenix gene.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Our Breeding Philosophy -->
-                        <div class="text-center">
-                            <h3 class="font-playfair text-4xl text-gradient font-bold mb-8 diamond-accent">Our Breeding
-                                Philosophy</h3>
-                            <div class="floating-card bg-white rounded-3xl p-10 shadow-xl max-w-5xl mx-auto">
-                                <p class="text-gray-700 leading-relaxed text-xl mb-8">
-                                    At both Trinkets and House of Rubies, our philosophy is rooted in
-                                    <span class="font-semibold text-amber-700">health, temperament, and genetic
-                                        integrity</span>.
-                                </p>
-
-                                <div class="grid md:grid-cols-2 gap-8 text-left">
-                                    <div>
-                                        <p class="text-gray-700 leading-relaxed text-lg mb-4">
-                                            We believe that a beautiful cat begins with a healthy foundation. All of our
-                                            breeding cats are rigorously health-tested for HCM, SMA, PK-def, and other
-                                            breed-specific conditions, and are raised in a stress-free, enriched
-                                            environment.
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-700 leading-relaxed text-lg">
-                                            We breed with intention—not just for looks, but for longevity, intelligence,
-                                            and affectionate nature. Every kitten is nurtured as part of our family
-                                            until they are ready to join yours.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Key Features Grid -->
-                        <div class="grid md:grid-cols-3 gap-8">
-                            <div class="floating-card bg-white rounded-2xl p-8 shadow-lg text-center">
-                                <div class="text-4xl text-amber-600 mb-4">🏥</div>
-                                <h4 class="font-playfair text-xl text-amber-600 font-semibold mb-4">Health Testing</h4>
-                                <p class="text-gray-700 leading-relaxed">
-                                    Comprehensive health screening including HCM, PKD, and SMA testing. We provide
-                                    health certificates for transparency and peace of mind.
-                                </p>
-                            </div>
-
-                            <div class="floating-card bg-white rounded-2xl p-8 shadow-lg text-center">
-                                <div class="text-4xl text-amber-600 mb-4">👥</div>
-                                <h4 class="font-playfair text-xl text-amber-600 font-semibold mb-4">Socialization</h4>
-                                <p class="text-gray-700 leading-relaxed">
-                                    Kittens are raised underfoot in our home environment, well-socialized with children,
-                                    other cats, and household activities.
-                                </p>
-                            </div>
-
-                            <div class="floating-card bg-white rounded-2xl p-8 shadow-lg text-center">
-                                <div class="text-4xl text-amber-600 mb-4">🏆</div>
-                                <h4 class="font-playfair text-xl text-amber-600 font-semibold mb-4">Breed Standard</h4>
-                                <p class="text-gray-700 leading-relaxed">
-                                    Committed to breeding Maine Coons that exemplify the breed standard while
-                                    maintaining excellent health and temperament.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Closing Statement -->
-                        <div class="text-center">
-                            <div
-                                class="floating-card bg-gradient-to-r from-amber-50 to-orange-50 rounded-3xl p-12 shadow-xl border border-amber-200">
-                                <p class="font-playfair text-2xl text-gray-700 leading-relaxed mb-6">
-                                    We welcome you to explore our catteries, meet our cats, and become part of a
-                                    community that honors the grandeur and grace of the Maine Coon breed.
-                                </p>
-                                <div class="section-divider max-w-xs mx-auto"></div>
-                                <p class="font-playfair text-3xl text-gradient font-bold italic">
-                                    Trinkets & House of Rubies — Where Every Kitten is a Treasure.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Kittens Page -->
-            <div id="kittens" class="page-section hidden>
-                <div class=" p-8 md:p-12 lg:p-16">
-                <!-- Main Header -->
-                <div class="text-center mb-16">
-                    <h2
-                        class="font-playfair text-5xl md:text-6xl lg:text-7xl text-gradient font-bold mb-6 diamond-accent">
-                        Available Kittens
-                    </h2>
-                    <div class="section-divider max-w-md mx-auto"></div>
-                    <p class="font-playfair text-2xl text-amber-700 italic font-semibold mb-4">
-                        Your New Treasure Awaits
-                    </p>
-                    <p class="text-gray-600 text-lg leading-relaxed max-w-4xl mx-auto">
-                        Thank you for your interest in a Trinkets or House of Rubies Maine Coon kitten! Below you'll
-                        find our currently available and upcoming kittens. Each one is raised with love in our home,
-                        health-checked, and socialized to ensure a smooth transition into yours.
-                    </p>
-                </div>
-
-                <div class="max-w-7xl mx-auto">
-                    <!-- Introduction -->
-                    <div class="floating-card bg-white rounded-3xl p-8 md:p-12 shadow-xl mb-16 text-center">
-                        <div class="grid md:grid-cols-2 gap-8 text-left">
-                            <div>
-                                <h3 class="font-playfair text-2xl text-amber-600 font-semibold mb-4">🏠 Raised with
-                                    Love</h3>
-                                <p class="text-gray-700 leading-relaxed">
-                                    Whether you're drawn to the full spectrum of Maine Coon colors from Trinkets or
-                                    the rare phoenix shades from House of Rubies, we're honored to help you find
-                                    your perfect match.
-                                </p>
-                            </div>
-                            <div>
-                                <h3 class="font-playfair text-2xl text-amber-600 font-semibold mb-4">🛡️ Complete
-                                    Care Package</h3>
-                                <p class="text-gray-700 leading-relaxed">
-                                    All kittens come with a health guarantee, age-appropriate vaccinations, and
-                                    lifelong breeder support.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Available Kittens Grid -->
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                        <!-- Princess Luna -->
-                        <div class="floating-card kitten-card bg-white rounded-3xl overflow-hidden shadow-xl">
-                            <div class="relative">
-                                <div
-                                    class="h-64 bg-gradient-to-br from-pink-100 via-purple-50 to-indigo-100 flex items-center justify-center kitten-image relative overflow-hidden">
-                                    <div class="absolute inset-0 bg-gradient-to-br from-pink-200/30 to-purple-200/30">
-                                    </div>
-                                    <div class="text-center z-10">
-                                        <div class="text-6xl mb-2">🐱</div>
-                                        <span
-                                            class="text-gray-600 font-medium bg-white/80 px-3 py-1 rounded-full text-sm">
-                                            Photo Coming Soon
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="absolute top-4 right-4">
-                                    <span class="coming-soon-badge">Available May 2025</span>
-                                </div>
-                            </div>
-                            <div class="p-6 text-center">
-                                <h3 class="font-playfair text-2xl text-amber-600 font-bold mb-3">Princess Luna</h3>
-                                <div class="space-y-2 text-gray-600">
-                                    <div class="bg-pink-50 rounded-lg p-3 border border-pink-200">
-                                        <p class="font-semibold text-pink-700">Silver Tabby Female</p>
-                                        <p class="text-sm">Born: March 2025</p>
-                                    </div>
-                                    <div class="text-sm text-gray-500">
-                                        <p>✧ Trinkets Maine Coons</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Prince Oliver -->
-                        <div class="floating-card kitten-card bg-white rounded-3xl overflow-hidden shadow-xl">
-                            <div class="relative">
-                                <div
-                                    class="h-64 bg-gradient-to-br from-blue-100 via-indigo-50 to-slate-100 flex items-center justify-center kitten-image relative overflow-hidden">
-                                    <div class="absolute inset-0 bg-gradient-to-br from-blue-200/30 to-indigo-200/30">
-                                    </div>
-                                    <div class="text-center z-10">
-                                        <div class="text-6xl mb-2">🦁</div>
-                                        <span
-                                            class="text-gray-600 font-medium bg-white/80 px-3 py-1 rounded-full text-sm">
-                                            Photo Coming Soon
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="absolute top-4 right-4">
-                                    <span class="coming-soon-badge">Available May 2025</span>
-                                </div>
-                            </div>
-                            <div class="p-6 text-center">
-                                <h3 class="font-playfair text-2xl text-amber-600 font-bold mb-3">Prince Oliver</h3>
-                                <div class="space-y-2 text-gray-600">
-                                    <div class="bg-blue-50 rounded-lg p-3 border border-blue-200">
-                                        <p class="font-semibold text-blue-700">Brown Tabby Male</p>
-                                        <p class="text-sm">Born: March 2025</p>
-                                    </div>
-                                    <div class="text-sm text-gray-500">
-                                        <p>✧ Trinkets Maine Coons</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Lady Sophia -->
-                        <div class="floating-card kitten-card bg-white rounded-3xl overflow-hidden shadow-xl">
-                            <div class="relative">
-                                <div
-                                    class="h-64 bg-gradient-to-br from-amber-100 via-orange-50 to-red-100 flex items-center justify-center kitten-image relative overflow-hidden">
-                                    <div class="absolute inset-0 bg-gradient-to-br from-amber-200/30 to-orange-200/30">
-                                    </div>
-                                    <div class="text-center z-10">
-                                        <div class="text-6xl mb-2">🌟</div>
-                                        <span
-                                            class="text-gray-600 font-medium bg-white/80 px-3 py-1 rounded-full text-sm">
-                                            Photo Coming Soon
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="absolute top-4 right-4">
-                                    <span class="coming-soon-badge">Available June 2025</span>
-                                </div>
-                            </div>
-                            <div class="p-6 text-center">
-                                <h3 class="font-playfair text-2xl text-amber-600 font-bold mb-3">Lady Sophia</h3>
-                                <div class="space-y-2 text-gray-600">
-                                    <div class="bg-amber-50 rounded-lg p-3 border border-amber-200">
-                                        <p class="font-semibold text-amber-700">Tortoiseshell Female</p>
-                                        <p class="text-sm">Born: April 2025</p>
-                                    </div>
-                                    <div class="text-sm text-gray-500">
-                                        <p>✧ Trinkets Maine Coons</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- Important Information -->
-                    <div class="mt-16 grid md:grid-cols-3 gap-6">
-                        <div class="bg-white rounded-2xl p-6 shadow-lg text-center">
-                            <div class="text-3xl mb-3">🛡️</div>
-                            <h4 class="font-playfair text-lg text-amber-600 font-semibold mb-2">Health Guarantee
-                            </h4>
-                            <p class="text-gray-600 text-sm">All kittens come with comprehensive health testing and
-                                guarantee</p>
-                        </div>
-                        <div class="bg-white rounded-2xl p-6 shadow-lg text-center">
-                            <div class="text-3xl mb-3">💉</div>
-                            <h4 class="font-playfair text-lg text-amber-600 font-semibold mb-2">Vaccinations</h4>
-                            <p class="text-gray-600 text-sm">Age-appropriate vaccinations and health records
-                                included</p>
-                        </div>
-                        <div class="bg-white rounded-2xl p-6 shadow-lg text-center">
-                            <div class="text-3xl mb-3">🤝</div>
-                            <h4 class="font-playfair text-lg text-amber-600 font-semibold mb-2">Lifelong Support
-                            </h4>
-                            <p class="text-gray-600 text-sm">We're here for guidance throughout your Maine Coon's
-                                life</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </div>
-
-    <!-- Available Adults Page -->
-    <div id="adults" class="page-section hidden">
-        <div class="p-8 md:p-12">
-            <div class="text-center mb-16">
-                <h2 class="font-playfair text-5xl md:text-6xl lg:text-7xl text-gradient font-bold mb-6">
-                    Available Adults
-                </h2>
-                <div class="section-divider max-w-md mx-auto"></div>
-                <p class="font-playfair text-2xl text-amber-700 italic font-semibold mb-4 crown-accent">
-                    Retired Royalty Ready for a Forever Throne
-                </p>
-            </div>
-
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-12">
-                    <p class="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto">
-                        Occasionally we have retired breeding cats or young adults available for adoption. These
-                        cats make wonderful companions and are already fully grown, so you know exactly what
-                        you're getting!
-                    </p>
-                </div>
-
-                <div id="adults-grid" class="grid justify-center">
-                    <!-- Adult cats will be populated by JavaScript -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Kings/Queens Page -->
-    <div id="royalty" class="page-section hidden">
-        <div class="p-8 md:p-12">
-            <h2 class="font-playfair text-4xl md:text-5xl text-center text-gradient font-semibold mb-12">
-                Our Royal Breeding Cats
-            </h2>
-
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-12">
-                    <p class="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto">
-                        Meet our magnificent breeding cats - the kings and queens of our cattery. Each of our
-                        breeding cats has been carefully selected for their exceptional qualities, health, and
-                        temperament.
-                    </p>
-                </div>
-
-                <div id="royalty-grid" class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-                    <!-- Royal cats will be populated by JavaScript -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Contact Page -->
-    <div id="contact" class="page-section hidden">
-        <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-8 md:p-12">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="font-playfair text-4xl md:text-5xl text-center text-gradient font-semibold mb-12">
-                    Get In Touch
-                </h2>
-
-                <div class="grid lg:grid-cols-2 gap-12">
-                    <!-- Contact Form -->
-                    <div class="bg-white rounded-2xl p-8 shadow-lg">
-                        <h3 class="font-playfair text-2xl text-amber-600 font-semibold mb-6">Send Us a Message
-                        </h3>
-                        <form class="space-y-6" onsubmit="handleSubmit(event)">
-                            <div>
-                                <input type="text"
-                                    class="form-input w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-gray-800 placeholder-gray-500 focus:border-amber-500 focus:outline-none transition-colors"
-                                    placeholder="Your Name*" required>
-                            </div>
-                            <div>
-                                <input type="email"
-                                    class="form-input w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-gray-800 placeholder-gray-500 focus:border-amber-500 focus:outline-none transition-colors"
-                                    placeholder="Your Email*" required>
-                            </div>
-                            <div>
-                                <input type="tel"
-                                    class="form-input w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-gray-800 placeholder-gray-500 focus:border-amber-500 focus:outline-none transition-colors"
-                                    placeholder="Your Phone">
-                            </div>
-                            <div>
-                                <textarea
-                                    class="form-input w-full px-4 py-3 h-32 border-2 border-gray-200 rounded-xl text-gray-800 placeholder-gray-500 focus:border-amber-500 focus:outline-none transition-colors resize-none"
-                                    placeholder="Message*" required></textarea>
-                            </div>
-                            <div class="space-y-4">
-                                <button type="submit"
-                                    class="w-full gradient-gold text-white py-3 px-6 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:scale-105">
-                                    Send Message
-                                </button>
-                                <button type="button"
-                                    class="w-full bg-gray-600 hover:bg-gray-700 text-white py-3 px-6 rounded-xl font-semibold text-lg transition-all duration-300"
-                                    onclick="clearForm()">
-                                    Reserve/Wait List Application
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <!-- Contact Information -->
-                    <div class="bg-white rounded-2xl p-8 shadow-lg">
-                        <div class="text-center space-y-6">
-                            <div class="text-4xl mb-6">👑</div>
-                            <h3 class="font-playfair text-2xl font-semibold text-gray-800 mb-6">
-                                Maine Coon Cattery
-                            </h3>
-                            <div class="text-center">
-                                <p class="font-playfair text-xl text-gradient font-semibold mb-2">"Royal Kingdom
-                                    of Maine Coons"</p>
-                                <p class="text-gray-700 font-medium mb-6">Pensacola, Florida, USA</p>
-                            </div>
-
-                            <div class="space-y-4 text-gray-700">
-                                <div class="bg-gray-50 rounded-xl p-4">
-                                    <p class="font-semibold mb-2">Breeder</p>
-                                    <p>Natalie Borodayne</p>
-                                </div>
-
-                                <div class="bg-gray-50 rounded-xl p-4">
-                                    <p class="font-semibold mb-2">Contact Information</p>
-                                    <div class="space-y-2 text-sm">
-                                        <p class="flex items-center justify-center gap-2">
-                                            <span>📱</span>
-                                            <span>+1 (850) 555-7863</span>
-                                        </p>
-                                        <p class="flex items-center justify-center gap-2">
-                                            <span>📧</span>
-                                            <span class="text-xs">royalkingdomofmainecoons@gmail.com</span>
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="bg-gray-50 rounded-xl p-4">
-                                    <p class="font-semibold mb-2">Social Media</p>
-                                    <div class="space-y-2 text-sm">
-                                        <p class="flex items-center justify-center gap-2">
-                                            <span>📷</span>
-                                            <span>@mainecoonscattery</span>
-                                        </p>
-                                        <p class="flex items-center justify-center gap-2">
-                                            <span>🏠</span>
-                                            <span>royal_kingdom_of_maine_coons</span>
-                                        </p>
-                                        <p class="flex items-center justify-center gap-2">
-                                            <span>🌐</span>
-                                            <span>natalie.borodayne</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex justify-center space-x-4 text-2xl text-amber-600 pt-6">
-                                <span>🐾</span>
-                                <span>🐾</span>
-                                <span>🐾</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </main>
-    </div>
-
-    <script>
+  <script>
         // Main carousel functionality
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-slide');
@@ -1113,6 +91,20 @@
             }
         ];
 
+        const kittenData = [
+            {
+                id: 'chocolate-marina',
+                name: 'Chocolate Chip Dom Sapfiroffe',
+                description: 'Chocolate Chip Dom Sapfiroff is our MCO phoenix smoke stud from the House of Rubies program',
+                images: [
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750589720/WhatsApp_Image_2025-06-21_at_19.26.48_0e7eb3ac_wx3gx1.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750589720/WhatsApp_Image_2025-06-21_at_19.26.48_02bbb23d_hwokku.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750589720/WhatsApp_Image_2025-06-21_at_19.26.48_32cafcc0_dblfwk.jpg'
+
+                ]
+            }
+        ];
+
         // Royal breeding cats data
         const royalCatsData = [
             {
@@ -1189,6 +181,7 @@
         // Separate image indices for each section
         let adultImageIndex = {};
         let royalImageIndex = {};
+        let kittenImageIndex = {};
 
         // Initialize image indices
         function initializeImageIndices() {
@@ -1197,6 +190,10 @@
             });
             royalCatsData.forEach(cat => {
                 royalImageIndex[cat.id] = 0;
+            });
+
+            kittenData.forEach(cat => {
+                kittenImageIndex[cat.id] = 0;
             });
         }
 
@@ -1241,6 +238,46 @@
         `;
         }
 
+
+        function createKittenImageCarousel(cat) {
+            if (cat.images.length === 1) {
+                return `
+            <div class="h-80 bg-gradient-to-br from-pink-50 to-blue-100 relative overflow-hidden">
+                <img src="${cat.images[0]}" alt="${cat.name}" 
+                     class="w-full h-full object-contain transition-transform duration-300 hover:scale-105" 
+                     onerror="showKittenFallback(this, '${cat.name}')">
+            </div>
+        `;
+            }
+
+            return `
+        <div class="image-carousel h-80 bg-gradient-to-br from-pink-50 to-blue-100 relative overflow-hidden" data-cat="${cat.id}" data-type="kitten">
+            <div class="carousel-container h-full flex transition-transform duration-300 ease-in-out" style="transform: translateX(0%); width: ${cat.images.length * 100}%;">
+                ${cat.images.map((img, index) => `
+                    <img src="${img}" alt="${cat.name} - Photo ${index + 1}" 
+                         class="w-full h-full object-contain flex-shrink-0" 
+                         style="width: ${100 / cat.images.length}%;"
+                         onerror="showKittenFallback(this, '${cat.name}')">
+                `).join('')}
+            </div>
+            
+            <div class="absolute top-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-sm">
+                <span class="current-image">1</span> / ${cat.images.length}
+            </div>
+            
+            <button class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition-all" onclick="changeKittenImage('${cat.id}', -1)">‹</button>
+            <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition-all" onclick="changeKittenImage('${cat.id}', 1)">›</button>
+            
+            <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                ${cat.images.map((_, index) => `
+                    <div class="w-2 h-2 rounded-full cursor-pointer transition-all ${index === 0 ? 'bg-white' : 'bg-white/50'}" 
+                         onclick="goToKittenImage('${cat.id}', ${index})"
+                         data-index="${index}"></div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+        }
         // Create image carousel for royal cats
         function createRoyalImageCarousel(cat) {
             if (cat.images.length === 1) {
@@ -1284,6 +321,26 @@
         `;
         }
 
+
+        function generateKittenCards() {
+            const grid = document.getElementById('kittens-grid');
+            if (!grid) return;
+
+            grid.innerHTML = kittenData.map(cat => `
+        <div class="floating-card bg-white rounded-2xl overflow-hidden shadow-lg max-w-lg w-full" data-cat="${cat.id}">
+            ${createKittenImageCarousel(cat)}
+            <div class="p-8 text-center">
+                <h3 class="font-playfair text-2xl text-amber-600 font-semibold mb-4">${cat.name}</h3>
+               
+                ${cat.description ? `
+                    <p class="text-gray-600 text-sm leading-relaxed italic border-t pt-4">
+                        ${cat.description}
+                    </p>
+                ` : ''}
+            </div>
+        </div>
+    `).join('');
+        }
         // Generate adult cat cards
         function generateAdultCards() {
             const grid = document.getElementById('adults-grid');
@@ -1341,6 +398,16 @@
             goToAdultImage(catId, newIndex);
         }
 
+        function changeKittenImage(catId, direction) {
+            const cat = kittenData.find(c => c.id === catId);
+            if (!cat || cat.images.length <= 1) return;
+
+            const currentIndex = kittenImageIndex[catId];
+            const newIndex = (currentIndex + direction + cat.images.length) % cat.images.length;
+
+            goToKittenImage(catId, newIndex);
+        }
+
         function goToAdultImage(catId, index) {
             const cat = adultsData.find(c => c.id === catId);
             if (!cat) return;
@@ -1348,6 +415,40 @@
             adultImageIndex[catId] = index;
 
             const carousel = document.querySelector(`[data-cat="${catId}"][data-type="adult"]`);
+            if (!carousel) return;
+
+            const container = carousel.querySelector('.carousel-container');
+            const dots = carousel.querySelectorAll('[data-index]');
+            const counter = carousel.querySelector('.current-image');
+
+            // Move carousel
+            const translateX = -index * (100 / cat.images.length);
+            container.style.transform = `translateX(${translateX}%)`;
+
+            // Update dots
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('bg-white/50');
+                    dot.classList.add('bg-white');
+                } else {
+                    dot.classList.remove('bg-white');
+                    dot.classList.add('bg-white/50');
+                }
+            });
+
+            // Update counter
+            if (counter) {
+                counter.textContent = index + 1;
+            }
+        }
+
+        function goToKittenImage(catId, index) {
+            const cat = kittenData.find(c => c.id === catId);
+            if (!cat) return;
+
+            kittenImageIndex[catId] = index;
+
+            const carousel = document.querySelector(`[data-cat="${catId}"][data-type="kitten"]`);
             if (!carousel) return;
 
             const container = carousel.querySelector('.carousel-container');
@@ -1454,6 +555,20 @@
             img.parentNode.replaceChild(fallbackDiv, img);
         }
 
+        function showKittenFallback(img, catName) {
+            const fallbackDiv = document.createElement('div');
+            fallbackDiv.className = 'w-full h-full flex items-center justify-center bg-gradient-to-br from-pink-50 to-blue-100';
+            fallbackDiv.innerHTML = `
+        <div class="text-center">
+            <div class="text-6xl mb-3">🐱</div>
+            <span class="text-gray-600 font-medium bg-white/80 px-4 py-2 rounded-full text-sm">
+                ${catName} Photo Coming Soon
+            </span>
+        </div>
+    `;
+            img.parentNode.replaceChild(fallbackDiv, img);
+        }
+
         // Auto-rotate functions
         function startAdultAutoRotate() {
             setInterval(() => {
@@ -1463,6 +578,16 @@
                     }
                 });
             }, 6000);
+        }
+
+        function startKittenAutoRotate() {
+            setInterval(() => {
+                kittenData.forEach(cat => {
+                    if (cat.images.length > 1) {
+                        changeKittenImage(cat.id, 1);
+                    }
+                });
+            }, 7000); // 7 second intervals for kittens
         }
 
         function startRoyalAutoRotate() {
@@ -1553,10 +678,12 @@
             // Generate cat cards
             generateAdultCards();
             generateRoyalCards();
+             generateKittenCards();
 
             // Start auto-rotate
             startAdultAutoRotate();
             startRoyalAutoRotate();
+             startKittenAutoRotate();
 
             // Setup animations
             setupAnimations();
@@ -1570,6 +697,3 @@
             }
         });
     </script>
-</body>
-
-</html>

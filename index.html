@@ -114,111 +114,6 @@
         .custom-shadow {
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-
-        .image-carousel {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .carousel-container {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel-image {
-            flex: 0 0 100%;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: all 0.3s ease;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .image-carousel:hover .carousel-nav {
-            opacity: 1;
-        }
-
-        .carousel-nav:hover {
-            background: rgba(0, 0, 0, 0.8);
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .carousel-nav.prev {
-            left: 15px;
-        }
-
-        .carousel-nav.next {
-            right: 15px;
-        }
-
-        .carousel-indicators {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-        }
-
-        .carousel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .carousel-dot.active {
-            background: white;
-            border-color: white;
-            transform: scale(1.2);
-        }
-
-        .carousel-dot:hover {
-            background: rgba(255, 255, 255, 0.8);
-        }
-
-        .image-counter {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        .crown-accent::before {
-            content: "👑";
-            margin-right: 0.5rem;
-        }
-
-        .crown-accent::after {
-            content: "👑";
-            margin-left: 0.5rem;
-        }
     </style>
 </head>
 
@@ -227,10 +122,10 @@
         <!-- Header -->
         <header class="text-center mb-12 animate-fade-in-up">
             <h1 class="font-playfair text-5xl md:text-7xl font-bold text-gray-800 mb-4 tracking-wider">
-                Welcome to Trinkets & House of Rubies
+                HOME
             </h1>
             <h2 class="font-playfair text-3xl md:text-4xl text-gradient font-medium italic mb-8">
-                — Where Legacy Meets Luxury in the Maine Coon World —
+                Royal Kingdom of Maine Coons
             </h2>
         </header>
 
@@ -353,8 +248,7 @@
                     <div class="max-w-4xl mx-auto text-center">
                         <div
                             class="inline-block gradient-gold text-white px-8 py-4 rounded-full text-lg md:text-xl font-semibold mb-8 shadow-lg">
-                            Welcome to Trinkets & House of Rubies
-
+                            Welcome to the Royal Kingdom of Maine Coons!
                         </div>
 
                         <div class="flex justify-center mb-8">
@@ -367,15 +261,29 @@
 
                         <div class="space-y-6 text-gray-700 leading-relaxed text-base md:text-lg">
                             <p>
-                                At Trinkets and House of Rubies, we are dedicated to preserving the majesty and magic of
-                                the Maine Coon. As ethical breeders and passionate guardians of this beloved breed, we
-                                offer two distinct catteries with one shared mission: to produce exceptional Maine Coons
-                                that are as healthy and loving as they are beautiful.
+                                My name is Natalie, and together with my husband Barry and our two wonderful children,
+                                we are proud Maine Coon breeders and enthusiasts. We have been breeding Maine Coons for
+                                over 15 years, and our small family brings great joy in extending a warm welcome to you
+                                in our esteemed cattery, where every Maine Coon is a genuine treasure, nurtured to bring
+                                love and happiness.
                             </p>
 
+                            <div class="flex justify-center my-8">
+                                <div class="flex space-x-4 text-2xl text-amber-600">
+                                    <span>🐾</span>
+                                    <span>🐾</span>
+                                    <span>🐾</span>
+                                </div>
+                            </div>
 
-
-
+                            <p>
+                                We are located in the charming city of Pensacola, nestled in the stunning landscapes of
+                                Florida. Our cattery benefits from a delightful sunny climate. We pay great attention to
+                                maintaining a comfortable temperature and humidity for our Maine Coons during the three
+                                hottest months. In the cool evenings, they are taken out for a walk under supervision,
+                                where they can enjoy the fresh air and beautiful landscapes. This helps them develop and
+                                grow in a healthy manner.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -480,201 +388,50 @@
             </div>
 
             <!-- About Page -->
-            <div id="about" class="page-section">
-                <div class="p-8 md:p-12 lg:p-16">
-                    <!-- Main Header -->
-                    <div class="text-center mb-16">
-                        <h2 class="font-playfair text-5xl md:text-6xl lg:text-7xl text-gradient font-bold mb-6">
-                            About Our Cattery
-                        </h2>
-                        <div class="section-divider max-w-md mx-auto"></div>
-                        <p class="font-inter text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                            Where exceptional Maine Coons are bred with passion, integrity, and unwavering commitment to
-                            excellence
-                        </p>
-                    </div>
+            <div id="about" class="page-section hidden">
+                <div class="p-8 md:p-12">
+                    <h2 class="font-playfair text-4xl md:text-5xl text-center text-gradient font-semibold mb-12">
+                        About Our Cattery
+                    </h2>
 
-                    <div class="max-w-7xl mx-auto space-y-16">
-                        <!-- Mission Statement -->
-                        <div class="text-center mb-16">
-                            <div class="floating-card bg-white rounded-3xl p-10 shadow-xl max-w-4xl mx-auto">
-                                <h3 class="font-playfair text-3xl text-amber-600 font-bold mb-6 diamond-accent">Our
-                                    Mission</h3>
-                                <p class="text-gray-700 leading-relaxed text-xl font-medium">
-                                    To produce exceptional Maine Coons that are as healthy and loving as they are
-                                    beautiful.
-                                </p>
-                            </div>
+                    <div class="max-w-4xl mx-auto space-y-12">
+                        <div class="floating-card bg-white rounded-2xl p-8 shadow-lg">
+                            <h3 class="font-playfair text-2xl text-amber-600 font-semibold mb-4">Our Story</h3>
+                            <p class="text-gray-700 leading-relaxed text-lg">
+                                The Royal Kingdom of Maine Coons was established with a passion for preserving the
+                                majestic beauty and gentle nature of the Maine Coon breed. Our journey began over 15
+                                years ago when we fell in love with these magnificent cats and decided to dedicate our
+                                lives to breeding healthy, well-socialized Maine Coons.
+                            </p>
                         </div>
 
-                        <!-- Trinkets Maine Coons Section -->
-                        <div class="grid lg:grid-cols-2 gap-12 items-start">
-                            <div class="floating-card bg-white rounded-3xl p-10 shadow-xl h-full">
-                                <div class="text-center mb-8">
-                                    <h3 class="font-playfair text-4xl text-amber-600 font-bold mb-4">
-                                        ◆ Trinkets Maine Coons ◆
-                                    </h3>
-                                    <div
-                                        class="w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full mb-6">
-                                    </div>
-                                    <p class="font-playfair text-xl text-amber-700 italic font-semibold">
-                                        All Colors. All Heart. All Maine Coon.
-                                    </p>
-                                </div>
-
-                                <div class="space-y-6">
-                                    <p class="text-gray-700 leading-relaxed text-lg">
-                                        Trinkets is our flagship cattery, where we proudly work with <span
-                                            class="font-semibold text-amber-700">all recognized Maine Coon
-                                            colors</span>—including classic tabbies, silvers, smokes, torties, solids,
-                                        and beyond.
-                                    </p>
-
-                                    <p class="text-gray-700 leading-relaxed text-lg">
-                                        We value diversity in both appearance and personality, producing kittens that
-                                        exemplify the breed standard in size, coat, structure, and temperament. Trinkets
-                                        kittens are raised in a warm, home-based environment with early socialization,
-                                        ensuring they grow into confident, affectionate companions.
-                                    </p>
-
-                                    <div class="accent-border mt-6">
-                                        <p class="text-gray-700 leading-relaxed text-lg italic">
-                                            Whether you seek a show-quality cat or a loyal family member, Trinkets
-                                            offers a rainbow of possibilities wrapped in gentle, giant hearts.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="floating-card bg-white rounded-3xl p-10 shadow-xl h-full">
-                                <div class="text-center mb-8">
-                                    <h3 class="font-playfair text-4xl text-amber-600 font-bold mb-4">
-                                        ✧ House of Rubies ✧
-                                    </h3>
-                                    <div
-                                        class="w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full mb-6">
-                                    </div>
-                                    <p class="font-playfair text-xl text-amber-700 italic font-semibold">
-                                        Rare Elegance. Timeless Warmth. The Phoenix of Maine Coons.
-                                    </p>
-                                </div>
-
-                                <div class="space-y-6">
-                                    <p class="text-gray-700 leading-relaxed text-lg">
-                                        House of Rubies is a boutique cattery specializing exclusively in the <span
-                                            class="font-semibold text-amber-700">rare cinnamon blue color
-                                            spectrum</span>—also known as the <em>phoenix shades</em>.
-                                    </p>
-
-                                    <p class="text-gray-700 leading-relaxed text-lg">
-                                        These uncommon, warm-toned coats with blue undercoats are paired with the same
-                                        hallmark features of the Maine Coon: luxurious fur, powerful bone structure, and
-                                        an intelligent, dog-like temperament.
-                                    </p>
-
-                                    <div class="bg-amber-50 rounded-2xl p-6 border border-amber-200">
-                                        <h4 class="font-playfair text-lg text-amber-800 font-semibold mb-3">Our
-                                            Distinguished Bloodlines:</h4>
-                                        <ul class="space-y-2 text-gray-700">
-                                            <li class="flex items-center">
-                                                <span class="text-amber-600 mr-2">•</span>
-                                                <span class="font-medium">Obama Iz Doma Yakhontoff</span>
-                                            </li>
-                                            <li class="flex items-center">
-                                                <span class="text-amber-600 mr-2">•</span>
-                                                <span class="font-medium">Tomiris Dom Sapfiroff</span>
-                                            </li>
-                                        </ul>
-                                        <p class="text-sm text-gray-600 mt-3 italic">
-                                            Both descended from Karamel Sanatakun
-                                        </p>
-                                    </div>
-
-                                    <div class="accent-border">
-                                        <p class="text-gray-700 leading-relaxed text-lg">
-                                            We are one of the few catteries globally dedicated to this color group in
-                                            Maine Coons. Each House of Rubies kitten is a testament to the rarity,
-                                            refinement, and radiant charm that defines the phoenix gene.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="floating-card bg-white rounded-2xl p-8 shadow-lg">
+                            <h3 class="font-playfair text-2xl text-amber-600 font-semibold mb-4">Our Mission</h3>
+                            <p class="text-gray-700 leading-relaxed text-lg">
+                                We are committed to breeding Maine Coons that exemplify the breed standard while
+                                maintaining excellent health, temperament, and socialization. Every kitten born in our
+                                cattery is raised with love, care, and attention to ensure they become wonderful family
+                                companions.
+                            </p>
                         </div>
 
-                        <!-- Our Breeding Philosophy -->
-                        <div class="text-center">
-                            <h3 class="font-playfair text-4xl text-gradient font-bold mb-8 diamond-accent">Our Breeding
-                                Philosophy</h3>
-                            <div class="floating-card bg-white rounded-3xl p-10 shadow-xl max-w-5xl mx-auto">
-                                <p class="text-gray-700 leading-relaxed text-xl mb-8">
-                                    At both Trinkets and House of Rubies, our philosophy is rooted in
-                                    <span class="font-semibold text-amber-700">health, temperament, and genetic
-                                        integrity</span>.
-                                </p>
-
-                                <div class="grid md:grid-cols-2 gap-8 text-left">
-                                    <div>
-                                        <p class="text-gray-700 leading-relaxed text-lg mb-4">
-                                            We believe that a beautiful cat begins with a healthy foundation. All of our
-                                            breeding cats are rigorously health-tested for HCM, SMA, PK-def, and other
-                                            breed-specific conditions, and are raised in a stress-free, enriched
-                                            environment.
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-700 leading-relaxed text-lg">
-                                            We breed with intention—not just for looks, but for longevity, intelligence,
-                                            and affectionate nature. Every kitten is nurtured as part of our family
-                                            until they are ready to join yours.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="floating-card bg-white rounded-2xl p-8 shadow-lg">
+                            <h3 class="font-playfair text-2xl text-amber-600 font-semibold mb-4">Health Testing</h3>
+                            <p class="text-gray-700 leading-relaxed text-lg">
+                                All our breeding cats undergo comprehensive health screening including HCM, PKD, and SMA
+                                testing. We believe in transparency and provide health certificates for all our kittens
+                                to ensure you're welcoming a healthy addition to your family.
+                            </p>
                         </div>
 
-                        <!-- Key Features Grid -->
-                        <div class="grid md:grid-cols-3 gap-8">
-                            <div class="floating-card bg-white rounded-2xl p-8 shadow-lg text-center">
-                                <div class="text-4xl text-amber-600 mb-4">🏥</div>
-                                <h4 class="font-playfair text-xl text-amber-600 font-semibold mb-4">Health Testing</h4>
-                                <p class="text-gray-700 leading-relaxed">
-                                    Comprehensive health screening including HCM, PKD, and SMA testing. We provide
-                                    health certificates for transparency and peace of mind.
-                                </p>
-                            </div>
-
-                            <div class="floating-card bg-white rounded-2xl p-8 shadow-lg text-center">
-                                <div class="text-4xl text-amber-600 mb-4">👥</div>
-                                <h4 class="font-playfair text-xl text-amber-600 font-semibold mb-4">Socialization</h4>
-                                <p class="text-gray-700 leading-relaxed">
-                                    Kittens are raised underfoot in our home environment, well-socialized with children,
-                                    other cats, and household activities.
-                                </p>
-                            </div>
-
-                            <div class="floating-card bg-white rounded-2xl p-8 shadow-lg text-center">
-                                <div class="text-4xl text-amber-600 mb-4">🏆</div>
-                                <h4 class="font-playfair text-xl text-amber-600 font-semibold mb-4">Breed Standard</h4>
-                                <p class="text-gray-700 leading-relaxed">
-                                    Committed to breeding Maine Coons that exemplify the breed standard while
-                                    maintaining excellent health and temperament.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Closing Statement -->
-                        <div class="text-center">
-                            <div
-                                class="floating-card bg-gradient-to-r from-amber-50 to-orange-50 rounded-3xl p-12 shadow-xl border border-amber-200">
-                                <p class="font-playfair text-2xl text-gray-700 leading-relaxed mb-6">
-                                    We welcome you to explore our catteries, meet our cats, and become part of a
-                                    community that honors the grandeur and grace of the Maine Coon breed.
-                                </p>
-                                <div class="section-divider max-w-xs mx-auto"></div>
-                                <p class="font-playfair text-3xl text-gradient font-bold italic">
-                                    Trinkets & House of Rubies — Where Every Kitten is a Treasure.
-                                </p>
-                            </div>
+                        <div class="floating-card bg-white rounded-2xl p-8 shadow-lg">
+                            <h3 class="font-playfair text-2xl text-amber-600 font-semibold mb-4">Socialization</h3>
+                            <p class="text-gray-700 leading-relaxed text-lg">
+                                Our kittens are raised underfoot in our home environment, ensuring they are
+                                well-socialized with children, other cats, and household activities. This early
+                                socialization creates confident, well-adjusted cats that adapt easily to their new
+                                homes.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -682,221 +439,176 @@
 
             <!-- Kittens Page -->
             <div id="kittens" class="page-section hidden">
-                <div class="p-8 md:p-12 lg:p-16">
-                    <!-- Main Header -->
-                    <div class="text-center mb-16">
-                        <h2
-                            class="font-playfair text-5xl md:text-6xl lg:text-7xl text-gradient font-bold mb-6 diamond-accent">
-                            Available Kittens
-                        </h2>
-                        <div class="section-divider max-w-md mx-auto"></div>
-                        <p class="font-playfair text-2xl text-amber-700 italic font-semibold mb-4">
-                            Your New Treasure Awaits
-                        </p>
-                        <p class="text-gray-600 text-lg leading-relaxed max-w-4xl mx-auto">
-                            Thank you for your interest in a Trinkets or House of Rubies Maine Coon kitten! Below you'll
-                            find our currently available and upcoming kittens. Each one is raised with love in our home,
-                            health-checked, and socialized to ensure a smooth transition into yours.
-                        </p>
-                    </div>
+                <div class="p-8 md:p-12">
+                    <h2 class="font-playfair text-4xl md:text-5xl text-center text-gradient font-semibold mb-12">
+                        Available Kittens
+                    </h2>
 
-                    <div class="max-w-7xl mx-auto">
-                        <!-- Introduction -->
-                        <div class="floating-card bg-white rounded-3xl p-8 md:p-12 shadow-xl mb-16 text-center">
-                            <div class="grid md:grid-cols-2 gap-8 text-left">
-                                <div>
-                                    <h3 class="font-playfair text-2xl text-amber-600 font-semibold mb-4">🏠 Raised with
-                                        Love</h3>
-                                    <p class="text-gray-700 leading-relaxed">
-                                        Whether you're drawn to the full spectrum of Maine Coon colors from Trinkets or
-                                        the rare phoenix shades from House of Rubies, we're honored to help you find
-                                        your perfect match.
-                                    </p>
-                                </div>
-                                <div>
-                                    <h3 class="font-playfair text-2xl text-amber-600 font-semibold mb-4">🛡️ Complete
-                                        Care Package</h3>
-                                    <p class="text-gray-700 leading-relaxed">
-                                        All kittens come with a health guarantee, age-appropriate vaccinations, and
-                                        lifelong breeder support.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Available Kittens Grid -->
-                        <div id="kittens-grid" class="grid justify-center">
-                            <!-- Adult cats will be populated by JavaScript -->
-                        </div>
-
-
-
-                    </div>
-                </div>
-
-
-                <div id="adults" class="page-section hidden">
-                    <div class="p-8 md:p-12">
-                        <div class="text-center mb-16">
-                            <h2 class="font-playfair text-5xl md:text-6xl lg:text-7xl text-gradient font-bold mb-6">
-                                Available Adults
-                            </h2>
-                            <div class="section-divider max-w-md mx-auto"></div>
-                            <p class="font-playfair text-2xl text-amber-700 italic font-semibold mb-4 crown-accent">
-                                Retired Royalty Ready for a Forever Throne
+                    <div class="max-w-6xl mx-auto">
+                        <div class="text-center mb-12">
+                            <p class="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto">
+                                Welcome to our nursery! Here you'll find information about our available Maine Coon
+                                kittens. Each kitten is raised with love and care in our home environment.
                             </p>
                         </div>
 
-                        <div class="max-w-6xl mx-auto">
-                            <div class="text-center mb-12">
-                                <p class="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto">
-                                    Occasionally we have retired breeding cats or young adults available for adoption.
-                                    These
-                                    cats make wonderful companions and are already fully grown, so you know exactly what
-                                    you're getting!
-                                </p>
-                            </div>
-
-                            <div id="adults-grid" class="grid justify-center">
-                                <!-- Adult cats will be populated by JavaScript -->
-                            </div>
+                     <div id="kittens-grid" class="grid md:grid-cols-2  gap-8 justify-items-center place-content-center max-w-6xl mx-auto">
+                            
                         </div>
                     </div>
                 </div>
+            </div>
 
+            <!-- Available Adults Page -->
+            <div id="adults" class="page-section hidden">
+                <div class="p-8 md:p-12">
+                    <h2 class="font-playfair text-4xl md:text-5xl text-center text-gradient font-semibold mb-12">
+                        Available Adults
+                    </h2>
 
-                <div id="royalty" class="page-section hidden">
-                    <div class="p-8 md:p-12">
+                    <div class="max-w-6xl mx-auto">
+                        <div class="text-center mb-12">
+                            <p class="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto">
+                                Occasionally we have retired breeding cats or young adults available for adoption. These
+                                cats make wonderful companions and are already fully grown, so you know exactly what
+                                you're getting!
+                            </p>
+                        </div>
+
+                        <div id="adults-grid" class="grid md:grid-cols-2 items-center justify-center gap-8">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kings/Queens Page -->
+            <div id="royalty" class="page-section hidden">
+                <div class="p-8 md:p-12">
+                    <h2 class="font-playfair text-4xl md:text-5xl text-center text-gradient font-semibold mb-12">
+                        Our Royal Breeding Cats
+                    </h2>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="text-center mb-12">
+                            <p class="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto">
+                                Meet our magnificent breeding cats - the kings and queens of our cattery. Each of our
+                                breeding cats has been carefully selected for their exceptional qualities, health, and
+                                temperament.
+                            </p>
+                        </div>
+
+                        <div id="royalty-grid" class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Page -->
+            <div id="contact" class="page-section hidden">
+                <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-8 md:p-12">
+                    <div class="max-w-4xl mx-auto">
                         <h2 class="font-playfair text-4xl md:text-5xl text-center text-gradient font-semibold mb-12">
-                            Our Royal Breeding Cats
+                            Get In Touch
                         </h2>
 
-                        <div class="max-w-6xl mx-auto">
-                            <div class="text-center mb-12">
-                                <p class="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto">
-                                    Meet our magnificent breeding cats - the kings and queens of our cattery. Each of
-                                    our
-                                    breeding cats has been carefully selected for their exceptional qualities, health,
-                                    and
-                                    temperament.
-                                </p>
+                        <div class="grid lg:grid-cols-2 gap-12">
+                            <!-- Contact Form -->
+                            <div class="bg-white rounded-2xl p-8 shadow-lg">
+                                <h3 class="font-playfair text-2xl text-amber-600 font-semibold mb-6">Send Us a Message
+                                </h3>
+                                <form class="space-y-6" onsubmit="handleSubmit(event)">
+                                    <div>
+                                        <input type="text"
+                                            class="form-input w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-gray-800 placeholder-gray-500 focus:border-amber-500 focus:outline-none transition-colors"
+                                            placeholder="Your Name*" required>
+                                    </div>
+                                    <div>
+                                        <input type="email"
+                                            class="form-input w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-gray-800 placeholder-gray-500 focus:border-amber-500 focus:outline-none transition-colors"
+                                            placeholder="Your Email*" required>
+                                    </div>
+                                    <div>
+                                        <input type="tel"
+                                            class="form-input w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-gray-800 placeholder-gray-500 focus:border-amber-500 focus:outline-none transition-colors"
+                                            placeholder="Your Phone">
+                                    </div>
+                                    <div>
+                                        <textarea
+                                            class="form-input w-full px-4 py-3 h-32 border-2 border-gray-200 rounded-xl text-gray-800 placeholder-gray-500 focus:border-amber-500 focus:outline-none transition-colors resize-none"
+                                            placeholder="Message*" required></textarea>
+                                    </div>
+                                    <div class="space-y-4">
+                                        <button type="submit"
+                                            class="w-full gradient-gold text-white py-3 px-6 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:scale-105">
+                                            Send Message
+                                        </button>
+                                        <button type="button"
+                                            class="w-full bg-gray-600 hover:bg-gray-700 text-white py-3 px-6 rounded-xl font-semibold text-lg transition-all duration-300"
+                                            onclick="clearForm()">
+                                            Reserve/Wait List Application
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
 
-                            <div id="royalty-grid" class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-                                <!-- Royal cats will be populated by JavaScript -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Page -->
-                <div id="contact" class="page-section hidden">
-                    <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-8 md:p-12">
-                        <div class="max-w-4xl mx-auto">
-                            <h2
-                                class="font-playfair text-4xl md:text-5xl text-center text-gradient font-semibold mb-12">
-                                Get In Touch
-                            </h2>
-
-                            <div class="grid lg:grid-cols-2 gap-12">
-                                <!-- Contact Form -->
-                                <div class="bg-white rounded-2xl p-8 shadow-lg">
-                                    <h3 class="font-playfair text-2xl text-amber-600 font-semibold mb-6">Send Us a
-                                        Message
+                            <!-- Contact Information -->
+                            <div class="bg-white rounded-2xl p-8 shadow-lg">
+                                <div class="text-center space-y-6">
+                                    <div class="text-4xl mb-6">👑</div>
+                                    <h3 class="font-playfair text-2xl font-semibold text-gray-800 mb-6">
+                                        Maine Coon Cattery
                                     </h3>
-                                    <form class="space-y-6" onsubmit="handleSubmit(event)">
-                                        <div>
-                                            <input type="text"
-                                                class="form-input w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-gray-800 placeholder-gray-500 focus:border-amber-500 focus:outline-none transition-colors"
-                                                placeholder="Your Name*" required>
-                                        </div>
-                                        <div>
-                                            <input type="email"
-                                                class="form-input w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-gray-800 placeholder-gray-500 focus:border-amber-500 focus:outline-none transition-colors"
-                                                placeholder="Your Email*" required>
-                                        </div>
-                                        <div>
-                                            <input type="tel"
-                                                class="form-input w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-gray-800 placeholder-gray-500 focus:border-amber-500 focus:outline-none transition-colors"
-                                                placeholder="Your Phone">
-                                        </div>
-                                        <div>
-                                            <textarea
-                                                class="form-input w-full px-4 py-3 h-32 border-2 border-gray-200 rounded-xl text-gray-800 placeholder-gray-500 focus:border-amber-500 focus:outline-none transition-colors resize-none"
-                                                placeholder="Message*" required></textarea>
-                                        </div>
-                                        <div class="space-y-4">
-                                            <button type="submit"
-                                                class="w-full gradient-gold text-white py-3 px-6 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:scale-105">
-                                                Send Message
-                                            </button>
-                                            <button type="button"
-                                                class="w-full bg-gray-600 hover:bg-gray-700 text-white py-3 px-6 rounded-xl font-semibold text-lg transition-all duration-300"
-                                                onclick="clearForm()">
-                                                Reserve/Wait List Application
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
+                                    <div class="text-center">
+                                        <p class="font-playfair text-xl text-gradient font-semibold mb-2">"Royal Kingdom
+                                            of Maine Coons"</p>
+                                        <p class="text-gray-700 font-medium mb-6">Pensacola, Florida, USA</p>
+                                    </div>
 
-                                <!-- Contact Information -->
-                                <div class="bg-white rounded-2xl p-8 shadow-lg">
-                                    <div class="text-center space-y-6">
-                                        <div class="text-4xl mb-6">👑</div>
-                                        <h3 class="font-playfair text-2xl font-semibold text-gray-800 mb-6">
-                                            Maine Coon Cattery
-                                        </h3>
-                                        <div class="text-center">
-                                            <p class="font-playfair text-xl text-gradient font-semibold mb-2">"Royal
-                                                Kingdom
-                                                of Maine Coons"</p>
-                                            <p class="text-gray-700 font-medium mb-6">Pensacola, Florida, USA</p>
+                                    <div class="space-y-4 text-gray-700">
+                                        <div class="bg-gray-50 rounded-xl p-4">
+                                            <p class="font-semibold mb-2">Breeder</p>
+                                            <p>Natalie Borodayne</p>
                                         </div>
 
-                                        <div class="space-y-4 text-gray-700">
-                                            <div class="bg-gray-50 rounded-xl p-4">
-                                                <p class="font-semibold mb-2">Breeder</p>
-                                                <p>Natalie Borodayne</p>
-                                            </div>
-
-                                            <div class="bg-gray-50 rounded-xl p-4">
-                                                <p class="font-semibold mb-2">Contact Information</p>
-                                                <div class="space-y-2 text-sm">
-                                                    <p class="flex items-center justify-center gap-2">
-                                                        <span>📱</span>
-                                                        <span>+1 (850) 555-7863</span>
-                                                    </p>
-                                                    <p class="flex items-center justify-center gap-2">
-                                                        <span>📧</span>
-                                                        <span class="text-xs">royalkingdomofmainecoons@gmail.com</span>
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="bg-gray-50 rounded-xl p-4">
-                                                <p class="font-semibold mb-2">Social Media</p>
-                                                <div class="space-y-2 text-sm">
-                                                    <p class="flex items-center justify-center gap-2">
-                                                        <span>📷</span>
-                                                        <span>@mainecoonscattery</span>
-                                                    </p>
-                                                    <p class="flex items-center justify-center gap-2">
-                                                        <span>🏠</span>
-                                                        <span>royal_kingdom_of_maine_coons</span>
-                                                    </p>
-                                                    <p class="flex items-center justify-center gap-2">
-                                                        <span>🌐</span>
-                                                        <span>natalie.borodayne</span>
-                                                    </p>
-                                                </div>
+                                        <div class="bg-gray-50 rounded-xl p-4">
+                                            <p class="font-semibold mb-2">Contact Information</p>
+                                            <div class="space-y-2 text-sm">
+                                                <p class="flex items-center justify-center gap-2">
+                                                    <span>📱</span>
+                                                    <span>+1 (850) 555-7863</span>
+                                                </p>
+                                                <p class="flex items-center justify-center gap-2">
+                                                    <span>📧</span>
+                                                    <span class="text-xs">royalkingdomofmainecoons@gmail.com</span>
+                                                </p>
                                             </div>
                                         </div>
 
-                                        <div class="flex justify-center space-x-4 text-2xl text-amber-600 pt-6">
-                                            <span>🐾</span>
-                                            <span>🐾</span>
-                                            <span>🐾</span>
+                                        <div class="bg-gray-50 rounded-xl p-4">
+                                            <p class="font-semibold mb-2">Social Media</p>
+                                            <div class="space-y-2 text-sm">
+                                                <p class="flex items-center justify-center gap-2">
+                                                    <span>📷</span>
+                                                    <span>@mainecoonscattery</span>
+                                                </p>
+                                                <p class="flex items-center justify-center gap-2">
+                                                    <span>🏠</span>
+                                                    <span>royal_kingdom_of_maine_coons</span>
+                                                </p>
+                                                <p class="flex items-center justify-center gap-2">
+                                                    <span>🌐</span>
+                                                    <span>natalie.borodayne</span>
+                                                </p>
+                                            </div>
                                         </div>
+                                    </div>
+
+                                    <div class="flex justify-center space-x-4 text-2xl text-amber-600 pt-6">
+                                        <span>🐾</span>
+                                        <span>🐾</span>
+                                        <span>🐾</span>
                                     </div>
                                 </div>
                             </div>
@@ -904,12 +616,8 @@
                     </div>
                 </div>
             </div>
-
-
-
         </main>
     </div>
-
     <script>
         // Main carousel functionality
         let currentSlide = 0;
@@ -1590,12 +1298,12 @@
             // Generate cat cards
             generateAdultCards();
             generateRoyalCards();
-             generateKittenCards();
+            generateKittenCards();
 
             // Start auto-rotate
             startAdultAutoRotate();
             startRoyalAutoRotate();
-             startKittenAutoRotate();
+            startKittenAutoRotate();
 
             // Setup animations
             setupAnimations();
