@@ -847,12 +847,14 @@
             forms.forEach(form => form.reset());
         }
 
-        // Adult cats data
+        // Adult cats data (retired breeding cats)
         const adultsData = [
             {
-                id: 'duchess-marina',
+                id: 'ronnie-king',
                 name: 'Ronnie',
-                description: 'A gentle and loving retired breeding queen who enjoys quiet companionship and sunny windowsills.',
+                title: 'King (Male)',
+                cattery: 'Dom Sapfiroff',
+                description: 'A gentle and loving retired breeding king who enjoys quiet companionship and sunny windowsills.',
                 images: [
                     'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750587699/WhatsApp_Image_2025-06-21_at_19.32.59_37a4e20e_yij21s.jpg',
                     'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750587699/WhatsApp_Image_2025-06-21_at_19.32.58_539007d5_if7d1m.jpg',
@@ -864,130 +866,23 @@
             }
         ];
 
+        // Kittens data (young cats available for adoption)
         const kittenData = [
-            {
-                id: 'chocolate-marina',
-                name: 'Kissable Dom Sapfiroff MCO phoenix',
-                description: 'This is our queen T Kissable Dom Sapfiroff MCO phoenix with white House of RubiesCopper eyes',
-                images: [
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750696857/WhatsApp_Image_2025-06-23_at_16.06.39_f2b39696_prrpbb.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750696858/WhatsApp_Image_2025-06-23_at_16.06.39_7306cd58_gsp8xo.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750696857/WhatsApp_Image_2025-06-23_at_16.06.39_a00cea3c_zlvaah.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750696857/WhatsApp_Image_2025-06-23_at_16.06.38_f29963fd_okcotj.jpg'
-
-
-                ]
-            },
-            {
-                id: 'queen-trinkets',
-                name: 'Queen of Trinkets ',
-                description: 'This is ourQueen of Trinkets Black torbie Golden eyes Winter Cherry Barbaross',
-                images: [
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701105/WhatsApp_Image_2025-06-23_at_16.08.35_702a1b82_ejojjo.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701106/WhatsApp_Image_2025-06-23_at_16.08.35_173fabd1_ten2sj.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701106/WhatsApp_Image_2025-06-23_at_16.08.35_045e5289_kbzcuq.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701105/WhatsApp_Image_2025-06-23_at_16.08.35_e41ad79c_vsq2mu.jpg'
-
-
-                ]
-            },
-            {
-                id: 'eve-blackberry-arnold-lions',
-                name: 'Eve Blackberry Arnold Lions',
-                description: 'This is our Eve Blackberry Arnold Lions Green eyes Winter Queen of Trinkets',
-                images: [
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701422/WhatsApp_Image_2025-06-23_at_16.09.41_e6ced9fb_zxinem.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701425/WhatsApp_Image_2025-06-23_at_16.09.41_59a56853_r4lomb.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701424/WhatsApp_Image_2025-06-23_at_16.09.41_702e2181_r9byts.jpg',
-
-
-
-                ]
-            },
-            {
-                id: 'nightly-king',
-                name: 'Nightly Kingdom of Maine Coons',
-                description: 'Nightly Kingdom of Maine Coons Black with white Odd eyes Queen of Trinkets',
-                images: [
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701578/WhatsApp_Image_2025-06-23_at_16.10.29_60c5f315_ixb0uf.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701577/WhatsApp_Image_2025-06-23_at_16.10.29_6b288684_wryide.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701577/WhatsApp_Image_2025-06-23_at_16.10.29_68946849_lc2c0w.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701576/WhatsApp_Image_2025-06-23_at_16.10.29_8e75e9cd_cuf65h.jpg'
-
-
-
-                ]
-            },
-            {
-                id: 'whiskey-cola',
-                name: 'Whiskey Cola Barbaross',
-                description: 'Whiskey Cola Barbaross Black tortie Gold eyes Queen of Trinkets  Queen of House of Rubies ',
-                images: [
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701771/WhatsApp_Image_2025-06-23_at_16.10.54_7a1a9210_dawhvm.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701771/WhatsApp_Image_2025-06-23_at_16.10.54_cfd14050_nvrrgn.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701771/WhatsApp_Image_2025-06-23_at_16.10.54_5903bc2d_hrok5a.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701771/WhatsApp_Image_2025-06-23_at_16.10.54_6e3622c6_cfbh0u.jpg'
-
-
-
-                ]
-            },
-            {
-                id: 'radushka-moonrisecoon',
-                name: 'Radushka Moonrisecoon ',
-                description: 'Radushka Moonrisecoon Black torbie with white Odd eyes Queen of Trinkets  Queen of House of Rubies ',
-                images: [
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701940/WhatsApp_Image_2025-06-23_at_16.11.29_50dce34b_hinrnq.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701940/WhatsApp_Image_2025-06-23_at_16.11.29_ae11f151_sqshaj.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701940/WhatsApp_Image_2025-06-23_at_16.11.30_2f07acfc_pnvgzc.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701941/WhatsApp_Image_2025-06-23_at_16.11.29_c3813ad9_jre8ti.jpg'
-
-
-
-                ]
-            },
-            {
-                id: 'empress-keen-style',
-                name: 'Empress Keen Style ',
-                description: 'Empress Keen Style Black torbie with white Odd eyes Queen of Trinkets  Queen of House of Rubies ',
-                images: [
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750702075/WhatsApp_Image_2025-06-23_at_16.11.50_20ba8002_cgphwf.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750702079/WhatsApp_Image_2025-06-23_at_16.11.50_bb104b0a_vvzhkv.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750702076/WhatsApp_Image_2025-06-23_at_16.11.50_850e3198_ugszbx.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750702107/WhatsApp_Image_2025-06-23_at_16.11.50_17bbdd0b_ix4bbi.jpg'
-
-
-
-                ]
-            },
-            {
-                id: 'roskosh-dom-sapfiroff',
-                name: 'Roskosh Dom Sapfiroff ',
-                description: 'Roskosh Dom Sapfiroff Black torbie with white Odd eyes Queen of Trinkets  Queen of House of Rubies ',
-                images: [
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750702250/WhatsApp_Image_2025-06-23_at_16.12.19_06cc16d2_relg9r.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750702250/WhatsApp_Image_2025-06-23_at_16.12.20_ec923554_dvtbpd.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750702250/WhatsApp_Image_2025-06-23_at_16.12.19_10ed0b8e_i8ez60.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750702251/WhatsApp_Image_2025-06-23_at_16.12.19_819762ca_c0nsuu.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750702251/WhatsApp_Image_2025-06-23_at_16.12.19_77fdd458_myxxcx.jpg'
-
-
-
-                ]
-            }
+            // Currently no kittens listed - this section can be populated when kittens are available
         ];
 
-        // Royal breeding cats data
+        // Royal breeding cats data (active breeding Kings and Queens)
         const royalCatsData = [
             {
-                id: 'king-thunderstorm',
+                id: 'chocolate-chip-king',
                 name: 'Chocolate Chip Dom Sapfiroff',
-                title: ' MCO phoenix smoke Stud',
-                breed: 'Brown Tabby',
-                achievement: 'Champion Bloodline',
+                title: 'King (Stud)',
+                color: 'MCO phoenix smoke',
+                eyes: 'Copper',
+                cattery: 'Dom Sapfiroff',
                 bgGradient: 'from-gray-100 to-gray-200',
                 crown: '👑',
-                description: 'A magnificent stud with exceptional size and temperament, carrying champion bloodlines.',
+                description: 'A magnificent king with exceptional size and temperament, carrying champion bloodlines.',
                 images: [
                     'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750589720/WhatsApp_Image_2025-06-21_at_19.26.48_0e7eb3ac_wx3gx1.jpg',
                     'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750589720/WhatsApp_Image_2025-06-21_at_19.26.48_32cafcc0_dblfwk.jpg',
@@ -995,34 +890,35 @@
                 ]
             },
             {
-                id: 'queen-seraphina',
+                id: 'maibah-king',
                 name: 'Maibah Volkov Praid',
-                title: ' Our black smoke MCO Stud',
-                breed: 'Silver Tabby',
-                achievement: 'Imported from Europe',
-                bgGradient: 'from-purple-50 to-pink-100',
-                crown: '👸',
-                description: 'An elegant European import with exceptional silver markings and gentle nature.',
+                title: 'King (Stud)',
+                color: 'Black smoke MCO',
+                eyes: 'Gold',
+                cattery: 'Volkov Praid',
+                bgGradient: 'from-slate-100 to-gray-200',
+                crown: '👑',
+                description: 'An elegant imported king with exceptional markings and gentle nature.',
                 images: [
                     'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750590095/WhatsApp_Image_2025-06-21_at_19.28.36_2113f18f_x8mphp.jpg',
                     'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750590095/WhatsApp_Image_2025-06-21_at_19.28.36_a0ef8c0f_hwmell.jpg',
                     'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750590095/WhatsApp_Image_2025-06-21_at_19.28.36_f247bb67_ixo9u8.jpg',
                     'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750590095/WhatsApp_Image_2025-06-21_at_19.28.36_b37c0cb0_tbdayp.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750590096/WhatsApp_Image_2025-06-21_at_19.28.36_5a860e54_mhxdcx.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750590096/WhatsApp_Image_2025-06-21_at_19.28.35_f5b260d9_uh7a84.jpg,',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750590095/WhatsApp_Image_2025-06-21_at_19.28.36_5a860e54_mhxdcx.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750590096/WhatsApp_Image_2025-06-21_at_19.28.35_f5b260d9_uh7a84.jpg',
                     'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750590096/WhatsApp_Image_2025-06-21_at_19.28.36_d63ef5d1_a2sfxr.jpg'
-
                 ]
             },
             {
-                id: 'queen-isabella',
+                id: 'breeze-queen',
                 name: 'Breeze Nordirbiscat',
-                title: 'Red chinchilla MCO',
-                breed: 'Tortoiseshell',
-                achievement: 'Grand Champion',
+                title: 'Queen',
+                color: 'Red chinchilla MCO',
+                eyes: 'Green',
+                cattery: 'Nordirbiscat',
                 bgGradient: 'from-amber-50 to-yellow-100',
                 crown: '👸',
-                description: 'A stunning tortoiseshell with grand champion status and excellent mothering abilities.',
+                description: 'A stunning queen with excellent mothering abilities and beautiful red coloring.',
                 images: [
                     'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592058/WhatsApp_Image_2025-06-21_at_19.31.15_32c252e1_ftfpb4.jpg',
                     'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592058/WhatsApp_Image_2025-06-21_at_19.31.15_e5cb3b55_grkzbs.jpg',
@@ -1032,20 +928,140 @@
                 ]
             },
             {
-                id: 'king-augustus',
-                name: 'This is Sugar Kiss',
-                title: 'Blue MCO stud',
-                breed: 'Solid Black',
-                achievement: 'Health Tested',
-                bgGradient: 'from-slate-100 to-gray-200',
+                id: 'sugar-kiss-king',
+                name: 'Sugar Kiss',
+                title: 'King (Stud)',
+                color: 'Blue MCO',
+                eyes: 'Gold',
+                cattery: 'Sugar Kiss',
+                bgGradient: 'from-blue-50 to-slate-100',
                 crown: '👑',
-                description: 'A powerful solid black stud with comprehensive health testing and proven genetics.',
+                description: 'A powerful blue king with comprehensive health testing and proven genetics.',
                 images: [
                     'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592524/WhatsApp_Image_2025-06-21_at_19.31.50_1a32b2fa_actu3j.jpg',
                     'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592524/WhatsApp_Image_2025-06-21_at_19.31.50_5baa408c_cti4sb.jpg',
                     'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592524/WhatsApp_Image_2025-06-21_at_19.32.19_0c9bbe5e_nfcfir.jpg',
                     'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592524/WhatsApp_Image_2025-06-21_at_19.32.19_0ea5a4f1_gkiowd.jpg',
                     'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592526/WhatsApp_Image_2025-06-21_at_19.31.50_e8f8bd95_rieykr.jpg'
+                ]
+            },
+            {
+                id: 'kissable-queen',
+                name: "T'Kissable Dom Sapfiroff",
+                title: 'Queen',
+                color: 'Cinnamon blue (phoenix)',
+                eyes: 'Copper',
+                cattery: 'House of Rubies',
+                bgGradient: 'from-purple-50 to-pink-100',
+                crown: '👸',
+                description: 'Our precious queen with stunning phoenix coloring and copper eyes.',
+                images: [
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750696857/WhatsApp_Image_2025-06-23_at_16.06.39_f2b39696_prrpbb.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750696858/WhatsApp_Image_2025-06-23_at_16.06.39_7306cd58_gsp8xo.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750696857/WhatsApp_Image_2025-06-23_at_16.06.39_a00cea3c_zlvaah.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750696857/WhatsApp_Image_2025-06-23_at_16.06.38_f29963fd_okcotj.jpg'
+                ]
+            },
+            {
+                id: 'winter-cherry-queen',
+                name: 'Winter Cherry Barbaross',
+                title: 'Queen',
+                color: 'Black torbie',
+                eyes: 'Golden',
+                cattery: 'Trinkets',
+                bgGradient: 'from-amber-50 to-orange-100',
+                crown: '👸',
+                description: 'Our beautiful Winter Cherry with striking black torbie coloring and golden eyes.',
+                images: [
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701105/WhatsApp_Image_2025-06-23_at_16.08.35_702a1b82_ejojjo.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701106/WhatsApp_Image_2025-06-23_at_16.08.35_173fabd1_ten2sj.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701106/WhatsApp_Image_2025-06-23_at_16.08.35_045e5289_kbzcuq.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701105/WhatsApp_Image_2025-06-23_at_16.08.35_e41ad79c_vsq2mu.jpg'
+                ]
+            },
+            {
+                id: 'eve-blackberry-queen',
+                name: 'Eve Blackberry Arnold Lions',
+                title: 'Queen',
+                color: 'Black torbie',
+                eyes: 'Green',
+                cattery: 'Trinkets',
+                bgGradient: 'from-green-50 to-emerald-100',
+                crown: '👸',
+                description: 'Our stunning Eve Blackberry with beautiful green eyes, daughter of Winter Cherry.',
+                images: [
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701422/WhatsApp_Image_2025-06-23_at_16.09.41_e6ced9fb_zxinem.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701425/WhatsApp_Image_2025-06-23_at_16.09.41_59a56853_r4lomb.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701424/WhatsApp_Image_2025-06-23_at_16.09.41_702e2181_r9byts.jpg'
+                ]
+            },
+            {
+                id: 'whiskey-cola-queen',
+                name: 'Whiskey Cola Barbaross',
+                title: 'Queen',
+                color: 'Black tortie',
+                eyes: 'Gold',
+                cattery: 'Trinkets / House of Rubies',
+                bgGradient: 'from-yellow-50 to-amber-100',
+                crown: '👸',
+                description: 'Beautiful Whiskey Cola with stunning black tortie coloring and golden eyes.',
+                images: [
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701771/WhatsApp_Image_2025-06-23_at_16.10.54_7a1a9210_dawhvm.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701771/WhatsApp_Image_2025-06-23_at_16.10.54_cfd14050_nvrrgn.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701771/WhatsApp_Image_2025-06-23_at_16.10.54_5903bc2d_hrok5a.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701771/WhatsApp_Image_2025-06-23_at_16.10.54_6e3622c6_cfbh0u.jpg'
+                ]
+            },
+            {
+                id: 'radushka-queen',
+                name: 'Radushka Moonrisecoon',
+                title: 'Queen',
+                color: 'Black torbie with white',
+                eyes: 'Odd eyes',
+                cattery: 'Trinkets / House of Rubies',
+                bgGradient: 'from-blue-50 to-purple-100',
+                crown: '👸',
+                description: 'Stunning Radushka with unique odd eyes and beautiful black torbie with white markings.',
+                images: [
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701940/WhatsApp_Image_2025-06-23_at_16.11.29_50dce34b_hinrnq.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701940/WhatsApp_Image_2025-06-23_at_16.11.29_ae11f151_sqshaj.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701940/WhatsApp_Image_2025-06-23_at_16.11.30_2f07acfc_pnvgzc.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750701941/WhatsApp_Image_2025-06-23_at_16.11.29_c3813ad9_jre8ti.jpg'
+                ]
+            },
+            {
+                id: 'empress-keen-queen',
+                name: 'Empress Keen Style',
+                title: 'Queen',
+                color: 'Black torbie with white',
+                eyes: 'Odd eyes',
+                cattery: 'Trinkets / House of Rubies',
+                bgGradient: 'from-indigo-50 to-blue-100',
+                crown: '👸',
+                description: 'Empress Keen Style with striking odd eyes and beautiful black torbie with white pattern.',
+                images: [
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750702075/WhatsApp_Image_2025-06-23_at_16.11.50_20ba8002_cgphwf.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750702079/WhatsApp_Image_2025-06-23_at_16.11.50_bb104b0a_vvzhkv.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750702076/WhatsApp_Image_2025-06-23_at_16.11.50_850e3198_ugszbx.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750702107/WhatsApp_Image_2025-06-23_at_16.11.50_17bbdd0b_ix4bbi.jpg'
+                ]
+            },
+            {
+                id: 'roskosh-queen',
+                name: 'Roskosh Dom Sapfiroff',
+                title: 'Queen',
+                color: 'Black torbie with white',
+                eyes: 'Odd eyes',
+                cattery: 'Trinkets / House of Rubies',
+                bgGradient: 'from-pink-50 to-rose-100',
+                crown: '👸',
+                description: 'Beautiful Roskosh with mesmerizing odd eyes and elegant black torbie with white markings.',
+                images: [
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750702250/WhatsApp_Image_2025-06-23_at_16.12.19_06cc16d2_relg9r.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750702250/WhatsApp_Image_2025-06-23_at_16.12.20_ec923554_dvtbpd.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750702250/WhatsApp_Image_2025-06-23_at_16.12.19_10ed0b8e_i8ez60.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750702251/WhatsApp_Image_2025-06-23_at_16.12.19_819762ca_c0nsuu.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750702251/WhatsApp_Image_2025-06-23_at_16.12.19_77fdd458_myxxcx.jpg'
                 ]
             }
         ];
@@ -1069,47 +1085,45 @@
             });
         }
 
-        // Create image carousel for adult cats
         function createAdultImageCarousel(cat) {
             if (cat.images.length === 1) {
                 return `
-                <div class="h-96 bg-gradient-to-br from-blue-50 to-purple-100 relative overflow-hidden">
-                    <img src="${cat.images[0]}" alt="${cat.name}" 
-                         class="w-full h-full object-contain transition-transform duration-300 hover:scale-105" 
-                         onerror="showAdultFallback(this, '${cat.name}')">
-                </div>
-            `;
+            <div class="h-96 bg-gradient-to-br from-blue-50 to-purple-100 relative overflow-hidden">
+                <img src="${cat.images[0]}" alt="${cat.name}" 
+                     class="w-full h-full object-contain transition-transform duration-300 hover:scale-105" 
+                     onerror="showAdultFallback(this, '${cat.name}')">
+            </div>
+        `;
             }
 
             return `
-            <div class="image-carousel h-80 bg-gradient-to-br from-blue-50 to-purple-100 relative overflow-hidden" data-cat="${cat.id}" data-type="adult">
-                <div class="carousel-container h-full flex transition-transform duration-300 ease-in-out" style="transform: translateX(0%); width: ${cat.images.length * 100}%;">
-                    ${cat.images.map((img, index) => `
-                        <img src="${img}" alt="${cat.name} - Photo ${index + 1}" 
-                             class="w-full h-full object-contain flex-shrink-0" 
-                             style="width: ${100 / cat.images.length}%;"
-                             onerror="showAdultFallback(this, '${cat.name}')">
-                    `).join('')}
-                </div>
-                
-                <div class="absolute top-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-sm">
-                    <span class="current-image">1</span> / ${cat.images.length}
-                </div>
-                
-                <button class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition-all" onclick="changeAdultImage('${cat.id}', -1)">‹</button>
-                <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition-all" onclick="changeAdultImage('${cat.id}', 1)">›</button>
-                
-                <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
-                    ${cat.images.map((_, index) => `
-                        <div class="w-2 h-2 rounded-full cursor-pointer transition-all ${index === 0 ? 'bg-white' : 'bg-white/50'}" 
-                             onclick="goToAdultImage('${cat.id}', ${index})"
-                             data-index="${index}"></div>
-                    `).join('')}
-                </div>
+        <div class="image-carousel h-80 bg-gradient-to-br from-blue-50 to-purple-100 relative overflow-hidden" data-cat="${cat.id}" data-type="adult">
+            <div class="carousel-container h-full flex transition-transform duration-300 ease-in-out" style="transform: translateX(0%); width: ${cat.images.length * 100}%;">
+                ${cat.images.map((img, index) => `
+                    <img src="${img}" alt="${cat.name} - Photo ${index + 1}" 
+                         class="w-full h-full object-contain flex-shrink-0" 
+                         style="width: ${100 / cat.images.length}%;"
+                         onerror="showAdultFallback(this, '${cat.name}')">
+                `).join('')}
             </div>
-        `;
+            
+            <div class="absolute top-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-sm">
+                <span class="current-image">1</span> / ${cat.images.length}
+            </div>
+            
+            <button class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition-all" onclick="changeAdultImage('${cat.id}', -1)">‹</button>
+            <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition-all" onclick="changeAdultImage('${cat.id}', 1)">›</button>
+            
+            <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                ${cat.images.map((_, index) => `
+                    <div class="w-2 h-2 rounded-full cursor-pointer transition-all ${index === 0 ? 'bg-white' : 'bg-white/50'}" 
+                         onclick="goToAdultImage('${cat.id}', ${index})"
+                         data-index="${index}"></div>
+                `).join('')}
+            </div>
+        </div>
+    `;
         }
-
 
         function createKittenImageCarousel(cat) {
             if (cat.images.length === 1) {
@@ -1150,48 +1164,52 @@
         </div>
     `;
         }
+
         // Create image carousel for royal cats
         function createRoyalImageCarousel(cat) {
             if (cat.images.length === 1) {
                 return `
-                <div class="h-64 bg-gradient-to-br ${cat.bgGradient} relative overflow-hidden">
-                    <div class="absolute top-2 left-2 text-2xl">${cat.crown}</div>
-                    <img src="${cat.images[0]}" alt="${cat.name}" 
-                         class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
-                         onerror="showRoyalFallback(this, '${cat.bgGradient}', '${cat.name}')">
-                </div>
-            `;
+            <div class="h-64 bg-gradient-to-br ${cat.bgGradient} relative overflow-hidden">
+                <div class="absolute top-2 left-2 text-2xl">${cat.crown}</div>
+                <img src="${cat.images[0]}" alt="${cat.name}" 
+                     class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                     onerror="showRoyalFallback(this, '${cat.bgGradient}', '${cat.name}')">
+            </div>
+        `;
             }
 
             return `
-            <div class="image-carousel h-64 bg-gradient-to-br ${cat.bgGradient} relative overflow-hidden" data-cat="${cat.id}" data-type="royal">
-                <div class="absolute top-2 left-2 text-2xl z-10">${cat.crown}</div>
-                <div class="carousel-container h-full flex transition-transform duration-300 ease-in-out" style="transform: translateX(0%); width: ${cat.images.length * 100}%;">
-                    ${cat.images.map((img, index) => `
-                        <img src="${img}" alt="${cat.name} - Photo ${index + 1}" 
-                             class="w-full h-full object-cover flex-shrink-0" 
-                             style="width: ${100 / cat.images.length}%;"
-                             onerror="showRoyalFallback(this, '${cat.bgGradient}', '${cat.name}')">
-                    `).join('')}
-                </div>
-                
-                <div class="absolute top-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-xs">
-                    <span class="current-image">1</span>/${cat.images.length}
-                </div>
-                
-                <button class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold transition-all" onclick="changeRoyalImage('${cat.id}', -1)">‹</button>
-                <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold transition-all" onclick="changeRoyalImage('${cat.id}', 1)">›</button>
-                
-                <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
-                    ${cat.images.map((_, index) => `
-                        <div class="w-1.5 h-1.5 rounded-full cursor-pointer transition-all ${index === 0 ? 'bg-white' : 'bg-white/50'}" 
-                             onclick="goToRoyalImage('${cat.id}', ${index})"
-                             data-index="${index}"></div>
-                    `).join('')}
-                </div>
+        <div class="image-carousel h-64 bg-gradient-to-br ${cat.bgGradient} relative overflow-hidden" data-cat="${cat.id}" data-type="royal">
+            <div class="absolute top-2 left-2 text-2xl z-10">${cat.crown}</div>
+            <div class="carousel-container h-full flex transition-transform duration-300 ease-in-out" style="transform: translateX(0%); width: ${cat.images.length * 100}%; ">
+                ${cat.images.map((img, index) => `
+                    <img src="${img}" alt="${cat.name} - Photo ${index + 1}" 
+                         class="w-full h-full object-cover flex-shrink-0" 
+                         style="width: ${100 / cat.images.length}%;"
+                         onerror="showRoyalFallback(this, '${cat.bgGradient}', '${cat.name}')">
+                `).join('')}
             </div>
-        `;
+            
+            <div class="absolute top-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-xs">
+                <span class="current-image">1</span>/${cat.images.length}
+            </div>
+            
+            <button class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition-all" onclick="changeRoyalImage('${cat.id}', -1)">‹</button>
+            <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition-all" onclick="changeRoyalImage('${cat.id}', 1)">›</button>
+            
+            <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1 z-10">
+                ${cat.images.map((_, index) => `
+                    <div class="w-2 h-2 rounded-full cursor-pointer transition-all ${index === 0 ? 'bg-white' : 'bg-white/50'}" 
+                         onclick="goToRoyalImage('${cat.id}', ${index})"
+                         data-index="${index}"></div>
+                `).join('')}
+            </div>
+        </div>
+    `;
         }
+
+
+ // <p class="font-medium">${cat.cattery}</p>
 
 
         function generateKittenCards() {
@@ -1221,11 +1239,15 @@
             grid.innerHTML = adultsData.map(cat => `
             <div class="floating-card bg-white rounded-2xl overflow-hidden shadow-lg max-w-lg w-full" data-cat="${cat.id}">
                 ${createAdultImageCarousel(cat)}
-                <div class="p-8 text-center">
-                    <h3 class="font-playfair text-2xl text-amber-600 font-semibold mb-4">${cat.name}</h3>
-                   
+               <div class="p-6 text-center">
+                    <div class="breeding-status">${cat.title}</div>
+                    <h3 class="font-playfair text-xl text-amber-600 font-semibold mb-3">${cat.name}</h3>
+                    <div class="text-gray-600 space-y-1 mb-3">
+                       
+                     
+                    </div>
                     ${cat.description ? `
-                        <p class="text-gray-600 text-sm leading-relaxed italic border-t pt-4">
+                        <p class="text-gray-600 text-xs leading-relaxed italic border-t pt-3">
                             ${cat.description}
                         </p>
                     ` : ''}
@@ -1246,8 +1268,8 @@
                     <div class="breeding-status">${cat.title}</div>
                     <h3 class="font-playfair text-xl text-amber-600 font-semibold mb-3">${cat.name}</h3>
                     <div class="text-gray-600 space-y-1 mb-3">
-                        <p class="font-medium">${cat.breed}</p>
-                        <p class="text-sm text-amber-600 font-medium">${cat.achievement}</p>
+                        <p class="font-medium">${cat.cattery}</p>
+                        <p class="text-sm text-amber-600 font-medium">${cat.color}</p>
                     </div>
                     ${cat.description ? `
                         <p class="text-gray-600 text-xs leading-relaxed italic border-t pt-3">
