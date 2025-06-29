@@ -856,12 +856,21 @@
                 cattery: 'Dom Sapfiroff',
                 description: 'A gentle and loving retired breeding king who enjoys quiet companionship and sunny windowsills.',
                 images: [
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750587699/WhatsApp_Image_2025-06-21_at_19.32.59_37a4e20e_yij21s.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750587699/WhatsApp_Image_2025-06-21_at_19.32.58_539007d5_if7d1m.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750587700/WhatsApp_Image_2025-06-21_at_19.32.58_9966a272_y73wql.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750587699/WhatsApp_Image_2025-06-21_at_19.32.59_ba793eec_ziyplw.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750587700/WhatsApp_Image_2025-06-21_at_19.32.58_e9535a43_s3oeof.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750587700/WhatsApp_Image_2025-06-21_at_19.32.58_b5342023_opp6jw.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/video/upload/v1751214915/WhatsApp_Video_2025-06-29_at_16.17.49_629eb101_vcu3nd.mp4',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1751214443/WhatsApp_Image_2025-06-29_at_16.17.49_e91150b7_iwqoby.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1751214444/WhatsApp_Image_2025-06-29_at_16.17.49_44ea80df_rthqqs.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1751214443/WhatsApp_Image_2025-06-29_at_16.17.49_1e314e39_wyv0ct.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1751214443/WhatsApp_Image_2025-06-29_at_16.17.49_65862162_ynf6ph.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1751214443/WhatsApp_Image_2025-06-29_at_16.17.49_5bb00414_nw8adk.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1751214440/WhatsApp_Image_2025-06-29_at_16.17.49_a93c22b2_aufa3p.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1751214440/WhatsApp_Image_2025-06-29_at_16.17.50_39a78b5b_l1c67k.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1751214439/WhatsApp_Image_2025-06-29_at_16.17.50_9687c8d7_xitdo1.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1751214439/WhatsApp_Image_2025-06-29_at_16.17.50_9687c8d7_xitdo1.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1751214439/WhatsApp_Image_2025-06-29_at_16.17.49_0a73736d_pbum2l.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1751214439/WhatsApp_Image_2025-06-29_at_16.17.49_02a705cd_hwxhrc.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1751214439/WhatsApp_Image_2025-06-29_at_16.17.50_e45ff2ec_obtqnd.jpg',
+                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1751214438/WhatsApp_Image_2025-06-29_at_16.17.50_34c431fc_gqsc5v.jpg'
+
                 ]
             }
         ];
@@ -940,7 +949,6 @@
                 images: [
                     'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592524/WhatsApp_Image_2025-06-21_at_19.31.50_1a32b2fa_actu3j.jpg',
                     'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592524/WhatsApp_Image_2025-06-21_at_19.31.50_5baa408c_cti4sb.jpg',
-                    'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592524/WhatsApp_Image_2025-06-21_at_19.32.19_0c9bbe5e_nfcfir.jpg',
                     'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592524/WhatsApp_Image_2025-06-21_at_19.32.19_0ea5a4f1_gkiowd.jpg',
                     'https://res.cloudinary.com/dfjm3z7es/image/upload/v1750592526/WhatsApp_Image_2025-06-21_at_19.31.50_e8f8bd95_rieykr.jpg'
                 ]
@@ -1085,13 +1093,25 @@
             });
         }
 
+
         function createAdultImageCarousel(cat) {
             if (cat.images.length === 1) {
+                const media = cat.images[0];
+                const isVideo = isVideoFile(media);
+
                 return `
             <div class="h-96 bg-gradient-to-br from-blue-50 to-purple-100 relative overflow-hidden">
-                <img src="${cat.images[0]}" alt="${cat.name}" 
-                     class="w-full h-full object-contain transition-transform duration-300 hover:scale-105" 
-                     onerror="showAdultFallback(this, '${cat.name}')">
+                ${isVideo ?
+                        `<video src="${media}" 
+                           class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                           controls
+                           onerror="showAdultFallback(this, '${cat.name}')">
+                        Your browser does not support the video tag.
+                     </video>` :
+                        `<img src="${media}" alt="${cat.name}" 
+                         class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                         onerror="showAdultFallback(this, '${cat.name}')">`
+                    }
             </div>
         `;
             }
@@ -1099,12 +1119,24 @@
             return `
         <div class="image-carousel h-80 bg-gradient-to-br from-blue-50 to-purple-100 relative overflow-hidden" data-cat="${cat.id}" data-type="adult">
             <div class="carousel-container h-full flex transition-transform duration-300 ease-in-out" style="transform: translateX(0%); width: ${cat.images.length * 100}%;">
-                ${cat.images.map((img, index) => `
-                    <img src="${img}" alt="${cat.name} - Photo ${index + 1}" 
-                         class="w-full h-full object-contain flex-shrink-0" 
-                         style="width: ${100 / cat.images.length}%;"
-                         onerror="showAdultFallback(this, '${cat.name}')">
-                `).join('')}
+                ${cat.images.map((media, index) => {
+                const isVideo = isVideoFile(media);
+                return `
+                        <div class="flex-shrink-0 w-full h-full flex items-center justify-center" style="width: ${100 / cat.images.length}%;">
+                            ${isVideo ?
+                        `<video src="${media}" 
+                                       class="w-full h-full object-cover" 
+                                       controls
+                                       onerror="showAdultFallback(this, '${cat.name}')">
+                                    Your browser does not support the video tag.
+                                 </video>` :
+                        `<img src="${media}" alt="${cat.name} - Photo ${index + 1}" 
+                                     class="w-full h-full object-cover" 
+                                     onerror="showAdultFallback(this, '${cat.name}')">`
+                    }
+                        </div>
+                    `;
+            }).join('')}
             </div>
             
             <div class="absolute top-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-sm">
@@ -1115,14 +1147,23 @@
             <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition-all" onclick="changeAdultImage('${cat.id}', 1)">›</button>
             
             <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
-                ${cat.images.map((_, index) => `
-                    <div class="w-2 h-2 rounded-full cursor-pointer transition-all ${index === 0 ? 'bg-white' : 'bg-white/50'}" 
-                         onclick="goToAdultImage('${cat.id}', ${index})"
-                         data-index="${index}"></div>
-                `).join('')}
+                ${cat.images.map((media, index) => {
+                const isVideo = isVideoFile(media);
+                return `
+                        <div class="w-2 h-2 rounded-full cursor-pointer transition-all ${index === 0 ? 'bg-white' : 'bg-white/50'} ${isVideo ? 'border border-white' : ''}" 
+                             onclick="goToAdultImage('${cat.id}', ${index})"
+                             data-index="${index}"
+                             title="${isVideo ? 'Video' : 'Image'}"></div>
+                    `;
+            }).join('')}
             </div>
         </div>
     `;
+        }
+        function isVideoFile(url) {
+            const videoExtensions = ['.mp4', '.mov', '.avi', '.mkv', '.webm', '.m4v', '.3gp', '.flv'];
+            const urlLower = url.toLowerCase();
+            return videoExtensions.some(ext => urlLower.includes(ext));
         }
 
         function createKittenImageCarousel(cat) {
@@ -1209,7 +1250,7 @@
         }
 
 
- // <p class="font-medium">${cat.cattery}</p>
+        // <p class="font-medium">${cat.cattery}</p>
 
 
         function generateKittenCards() {
@@ -1283,13 +1324,32 @@
 
         // Adult cat image navigation
         function changeAdultImage(catId, direction) {
-            const cat = adultsData.find(c => c.id === catId);
-            if (!cat || cat.images.length <= 1) return;
+            const carousel = document.querySelector(`[data-cat="${catId}"][data-type="adult"]`);
+            if (!carousel) return;
 
-            const currentIndex = adultImageIndex[catId];
-            const newIndex = (currentIndex + direction + cat.images.length) % cat.images.length;
+            const container = carousel.querySelector('.carousel-container');
+            const currentImageSpan = carousel.querySelector('.current-image');
+            const dots = carousel.querySelectorAll('[data-index]');
+            const videos = carousel.querySelectorAll('video');
 
-            goToAdultImage(catId, newIndex);
+            // Pause all videos when changing slides
+            videos.forEach(video => video.pause());
+
+            let currentIndex = parseInt(currentImageSpan.textContent) - 1;
+            const totalImages = dots.length;
+
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = totalImages - 1;
+            if (currentIndex >= totalImages) currentIndex = 0;
+
+            const translateX = -(currentIndex * (100 / totalImages));
+            container.style.transform = `translateX(${translateX}%)`;
+
+            currentImageSpan.textContent = currentIndex + 1;
+
+            dots.forEach((dot, index) => {
+                dot.className = dot.className.replace(/bg-white($|\s)/, index === currentIndex ? 'bg-white ' : 'bg-white/50 ');
+            });
         }
 
         function changeKittenImage(catId, direction) {
@@ -1302,38 +1362,27 @@
             goToKittenImage(catId, newIndex);
         }
 
-        function goToAdultImage(catId, index) {
-            const cat = adultsData.find(c => c.id === catId);
-            if (!cat) return;
-
-            adultImageIndex[catId] = index;
-
+        function goToAdultImage(catId, targetIndex) {
             const carousel = document.querySelector(`[data-cat="${catId}"][data-type="adult"]`);
             if (!carousel) return;
 
             const container = carousel.querySelector('.carousel-container');
+            const currentImageSpan = carousel.querySelector('.current-image');
             const dots = carousel.querySelectorAll('[data-index]');
-            const counter = carousel.querySelector('.current-image');
+            const videos = carousel.querySelectorAll('video');
 
-            // Move carousel
-            const translateX = -index * (100 / cat.images.length);
+            // Pause all videos when changing slides
+            videos.forEach(video => video.pause());
+
+            const totalImages = dots.length;
+            const translateX = -(targetIndex * (100 / totalImages));
             container.style.transform = `translateX(${translateX}%)`;
 
-            // Update dots
-            dots.forEach((dot, i) => {
-                if (i === index) {
-                    dot.classList.remove('bg-white/50');
-                    dot.classList.add('bg-white');
-                } else {
-                    dot.classList.remove('bg-white');
-                    dot.classList.add('bg-white/50');
-                }
-            });
+            currentImageSpan.textContent = targetIndex + 1;
 
-            // Update counter
-            if (counter) {
-                counter.textContent = index + 1;
-            }
+            dots.forEach((dot, index) => {
+                dot.className = dot.className.replace(/bg-white($|\s)/, index === targetIndex ? 'bg-white ' : 'bg-white/50 ');
+            });
         }
 
         function goToKittenImage(catId, index) {
