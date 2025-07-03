@@ -338,11 +338,11 @@
                                 <div class="text-center space-y-4">
                                     <div class="text-3xl mb-6">👑</div>
                                     <h3 class="font-playfair text-xl font-semibold text-gray-800 mb-6">
-                                       Port Richey, FL
+                                        Port Richey, FL
                                     </h3>
 
                                     <div class="space-y-3 text-gray-700">
-                                       
+
                                         <p class="font-medium">mainecoon</p>
 
                                         <div class="pt-4 space-y-2">
@@ -352,15 +352,14 @@
                                             </p>
                                             <p class="flex items-center justify-center gap-2">
                                                 <span>📧</span>
-                                                <span
-                                                    class="text-sm md:text-base">mainecoons@opayq.com</span>
+                                                <span class="text-sm md:text-base">mainecoons@opayq.com</span>
                                             </p>
                                             <p class="flex items-center justify-center gap-2">
                                                 <span>📷</span>
                                                 <span>mainecoons@opayq.com</span>
                                             </p>
-                                           
-                                           
+
+
                                             <p class="flex items-center justify-center gap-2 pt-2">
                                                 <span>📍</span>
                                                 <span>Pensacola, FL, USA</span>
@@ -739,9 +738,9 @@
                                                     <span>📷</span>
                                                     <span>mainecoons@opayq.com</span>
                                                 </p>
-                                               span>royal_kingdom_of_maine_coons</span>
+                                                span>royal_kingdom_of_maine_coons</span>
                                                 </p>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -1097,7 +1096,7 @@
                         Your browser does not support the video tag.
                      </video>` :
                         `<img src="${media}" alt="${cat.name}" 
-                         class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                         class="w-full h-full object-contain transition-transform duration-300 hover:scale-105" 
                          onerror="showAdultFallback(this, '${cat.name}')">`
                     }
             </div>
@@ -1119,7 +1118,7 @@
                                     Your browser does not support the video tag.
                                  </video>` :
                         `<img src="${media}" alt="${cat.name} - Photo ${index + 1}" 
-                                     class="w-full h-full object-cover" 
+                                     class="w-full h-full object-contain" 
                                      onerror="showAdultFallback(this, '${cat.name}')">`
                     }
                         </div>
@@ -1201,7 +1200,7 @@
             <div class="h-64 bg-gradient-to-br ${cat.bgGradient} relative overflow-hidden">
                 <div class="absolute top-2 left-2 text-2xl">${cat.crown}</div>
                 <img src="${cat.images[0]}" alt="${cat.name}" 
-                     class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                     class="w-full h-full object-contain transition-transform duration-300 hover:scale-105" 
                      onerror="showRoyalFallback(this, '${cat.bgGradient}', '${cat.name}')">
             </div>
         `;
@@ -1213,7 +1212,7 @@
             <div class="carousel-container h-full flex transition-transform duration-300 ease-in-out" style="transform: translateX(0%); width: ${cat.images.length * 100}%; ">
                 ${cat.images.map((img, index) => `
                     <img src="${img}" alt="${cat.name} - Photo ${index + 1}" 
-                         class="w-full h-full object-cover flex-shrink-0" 
+                         class="w-full h-full object-contain flex-shrink-0" 
                          style="width: ${100 / cat.images.length}%;"
                          onerror="showRoyalFallback(this, '${cat.bgGradient}', '${cat.name}')">
                 `).join('')}
